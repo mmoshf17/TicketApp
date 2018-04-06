@@ -1,0 +1,31 @@
+<resources>
+
+    // Application name
+    <string name="app_name">Ticket app</string>
+
+    // main menu buttons
+    <string name="Upload_button">Sell your ticket</string>
+    <string name="Search_button">Search</string>
+    <string name="Request_button">Request</string>
+    <string name="log_in">Log In</string>
+
+    // menu options
+    <string name="action_user">Icon</string>
+    <string name="Request_event_name">Name of the event</string>
+    <string name="one_choice">One</string>
+    <string name="two_choices">Two</string>
+    <string name="description">Description</string>
+    <string name="log_in_in_selection">Log In</string>
+    <string name="sign_up_in_selection">Sign Up</string>
+
+    // action bar strings
+    <string name="log_in_user">Log in</string>
+
+    // sign up all options
+    <string name="upload_photo">upload photo</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="repeat_password">Repeat your password</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="repeat_email">Repeat your email</string>
+</resources>

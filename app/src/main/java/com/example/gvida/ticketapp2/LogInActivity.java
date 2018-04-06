@@ -1,0 +1,38 @@
+package com.example.gvida.ticketapp2;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.widget.Button;
+
+/**
+ * Created by gvida on 20/03/2018.
+ */
+
+public class LogInActivity extends AppCompatActivity
+{
+
+    Button logIn, signUp;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.log_in_selection_window);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        logIn = (Button) findViewById(R.id.log_in_selection_window);
+        signUp = (Button) findViewById(R.id.sign_up_selection_window);
+
+        logIn.setOnClickListener((view -> {
+            Intent intent = new Intent(LogInActivity.this, LogInWindowActivity.class);
+            startActivity(intent);
+        }));
+
+        signUp.setOnClickListener((view -> {
+            Intent intent = new Intent(LogInActivity.this, SignUpWindowActivity.class);
+            startActivity(intent);
+        }));
+    }
+}
