@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
+
 public class MainMenuActivity extends AppCompatActivity {
 
     Button search, upload, request;
@@ -34,7 +35,14 @@ public class MainMenuActivity extends AppCompatActivity {
             Intent intent = new Intent(MainMenuActivity.this, RequestActivity.class);
             startActivity(intent);
         }));
+
+        // new HttpClient().execute();
+
+
     }
+
+
+
     @Override
     public boolean onCreateOptionsMenu (Menu menu)
     {
@@ -53,4 +61,8 @@ public class MainMenuActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(menuItem);
     }
 
-}
+
+   }
+
+
+
