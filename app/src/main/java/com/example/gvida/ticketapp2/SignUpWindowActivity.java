@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONObject;
 
@@ -32,8 +33,8 @@ import java.util.Iterator;
 public class SignUpWindowActivity extends AppCompatActivity
 {
 
-    Button signUp;
-    EditText etName, etPassword, etPassword2, etEmail, etEmail2;
+    //Button signUp;
+    //EditText etName, etPassword, etPassword2, etEmail, etEmail2;
     ImageButton profilePic;
 
     @Override
@@ -43,30 +44,45 @@ public class SignUpWindowActivity extends AppCompatActivity
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-      //  signUp = (Button) findViewById(R.id.sign_up_button_in_sign_up);
-      //  etName = (EditText) findViewById(R.id.enter_name_field);
-       // etPassword = (EditText) findViewById(R.id.enter_password_field);
-      //  etPassword2 = (EditText) findViewById(R.id.repeat_password_field);
-      //  etEmail = (EditText) findViewById(R.id.enter_your_email_address);
-      //  etEmail2 = (EditText) findViewById(R.id.repeat_your_email_address);
-      //  profilePic = (ImageButton) findViewById(R.id.upload_photo_button);
+       Button signUp = (Button) findViewById(R.id.sign_up_button_in_sign_up);
+       EditText etName = (EditText) findViewById(R.id.enter_name_field);
+       //EditText etPassword = (EditText) findViewById(R.id.enter_password_field);
+       //EditText etPassword2 = (EditText) findViewById(R.id.repeat_password_field);
+       EditText etEmail = (EditText) findViewById(R.id.enter_your_email_address);
+       EditText etEmail2 = (EditText) findViewById(R.id.repeat_your_email_address);
+        profilePic = (ImageButton) findViewById(R.id.upload_photo_button);
 
 
 
     }
 
     public void signupBt(View view) {
-        new HttpClient1().execute();
+
+        String passwordMatch = "The repeat password doesn't match with the password. Please try again";
+
+        EditText etPassword = (EditText) findViewById(R.id.enter_password_field);
+        EditText etPassword2 = (EditText) findViewById(R.id.repeat_password_field);
+        if (etPassword.getText().toString().equals(etPassword2.getText().toString()))
+        {
+            new HttpClient1().execute();
+        }
+
+        else
+            {
+                Toast.makeText(getApplicationContext(), passwordMatch, Toast.LENGTH_LONG).show();
+            }
+
+
     }
 
     public class HttpClient1 extends AsyncTask<String, Void, Void> {
+
 
         EditText enterName = (EditText)findViewById(R.id.enter_name_field);
         EditText enterEmail = (EditText)findViewById(R.id.enter_your_email_address);
         EditText repeatEmail = (EditText)findViewById(R.id.repeat_your_email_address);
         EditText enterPass = (EditText)findViewById(R.id.enter_password_field);
         EditText repeatPass = (EditText)findViewById(R.id.repeat_password_field);
-
 
         TextView lblError = (TextView) findViewById(R.id.signupError);
 

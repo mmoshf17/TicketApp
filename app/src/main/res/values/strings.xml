@@ -28,4 +28,17 @@
     <string name="repeat_password">Repeat your password</string>
     <string name="enter_your_email">Enter your email</string>
     <string name="repeat_email">Repeat your email</string>
+
+    // example list of posts
+    <string-array name="list_of_posts_array">
+        <item>test1</item>
+        <item>test2</item>
+        <item>test3</item>
+        <item>test4</item>
+        <item>test5</item>
+    </string-array>
+
+    //This is for the side menu
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 </resources>
