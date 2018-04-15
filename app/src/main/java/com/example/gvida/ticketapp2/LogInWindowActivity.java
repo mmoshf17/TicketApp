@@ -34,7 +34,7 @@ public class LogInWindowActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.log_in_window_activity);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
     }

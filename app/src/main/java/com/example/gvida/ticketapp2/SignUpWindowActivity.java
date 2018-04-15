@@ -42,7 +42,7 @@ public class SignUpWindowActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_up_window_activity);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+      //  getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
        Button signUp = (Button) findViewById(R.id.sign_up_button_in_sign_up);
        EditText etName = (EditText) findViewById(R.id.enter_name_field);

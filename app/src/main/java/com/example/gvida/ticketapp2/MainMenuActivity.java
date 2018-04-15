@@ -85,7 +85,13 @@ public class MainMenuActivity extends AppCompatActivity {
                     break;
 
                 case R.id.Account:
-                   Toast.makeText(getApplicationContext(), "this", Toast.LENGTH_SHORT).show();
+
+                    Intent intent3 = new Intent(getApplicationContext(), LogInActivity.class);
+                    startActivity(intent3);
+
+
+
+                 //  Toast.makeText(getApplicationContext(), "this", Toast.LENGTH_SHORT).show();
                     break;
 
                 case R.id.request_your_ticket:
@@ -138,4 +144,7 @@ public class MainMenuActivity extends AppCompatActivity {
         });
         return super.onCreateOptionsMenu(menu);
     }
+
+
+
 }

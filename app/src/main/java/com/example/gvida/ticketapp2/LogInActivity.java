@@ -15,21 +15,26 @@ public class LogInActivity extends AppCompatActivity
 
     Button logIn, signUp;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.log_in_selection_window);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        // Introduced the 2 buttons, which are in this Activity
         logIn = (Button) findViewById(R.id.log_in_selection_window);
         signUp = (Button) findViewById(R.id.sign_up_selection_window);
 
+        // When we click on login button, it goes to the next activity (LoginWindowActivity)
         logIn.setOnClickListener((view -> {
             Intent intent = new Intent(LogInActivity.this, LogInWindowActivity.class);
             startActivity(intent);
         }));
 
+        // When we click on signUp button, it goes to the next activity (SignUpWindowActivity)
         signUp.setOnClickListener((view -> {
             Intent intent = new Intent(LogInActivity.this, SignUpWindowActivity.class);
             startActivity(intent);

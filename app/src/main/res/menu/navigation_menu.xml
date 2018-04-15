@@ -11,7 +11,8 @@
 
         <item android:id="@+id/Account"
             android:icon="@drawable/ic_action_account_settings"
-            android:title="Account settings"/>
+            android:title="Account settings"
+            />
 
         <item android:id="@+id/request_your_ticket"
             android:icon="@drawable/ic_send_request_for_ticket"
