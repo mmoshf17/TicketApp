@@ -18,7 +18,8 @@ public class MainMenuActivity extends AppCompatActivity {
 
         upload = (Button) findViewById(R.id.upload_button);
         search = (Button) findViewById(R.id.searching_button);
-        request = (Button) findViewById(R.id.request_buttons);
+        request = (Button)
+        indViewById(R.id.request_buttons);
 
         search.setOnClickListener((view) -> {
             Intent intent = new Intent(MainMenuActivity.this, SearchActivity.class);
