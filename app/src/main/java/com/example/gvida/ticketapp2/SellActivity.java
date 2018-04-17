@@ -5,4 +5,5 @@ package com.example.gvida.ticketapp2;
  */
 
 public class SellActivity {
+    int test = 1;
 }
