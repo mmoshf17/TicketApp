@@ -9,43 +9,77 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name"
-        tools:layout_editor_absoluteX="174dp"
-        tools:layout_editor_absoluteY="40dp" />
+        android:text="@string/ticket_name"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="56dp" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Price"
-        tools:layout_editor_absoluteX="176dp"
-        tools:layout_editor_absoluteY="79dp" />
+        android:text="@string/price_ticket"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="116dp" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="action or bid"
-        tools:layout_editor_absoluteX="153dp"
-        tools:layout_editor_absoluteY="117dp" />
+        android:text="@string/auction_bid"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="193dp" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editText4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Fixed"
-        tools:layout_editor_absoluteX="84dp"
-        tools:layout_editor_absoluteY="223dp" />
+        tools:layout_editor_absoluteX="135dp"
+        tools:layout_editor_absoluteY="46dp" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/editText5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Auction"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="335dp" />
+        tools:layout_editor_absoluteX="135dp"
+        tools:layout_editor_absoluteY="106dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/buy_it_now"
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="243dp" />
+
+    <RadioButton
+        android:id="@+id/radioButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RadioButton"
+        tools:layout_editor_absoluteX="138dp"
+        tools:layout_editor_absoluteY="180dp" />
+
+    <RadioButton
+        android:id="@+id/radioButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RadioButton"
+        tools:layout_editor_absoluteX="137dp"
+        tools:layout_editor_absoluteY="230dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="135dp"
+        tools:layout_editor_absoluteY="325dp" />
+
 </android.support.constraint.ConstraintLayout>
