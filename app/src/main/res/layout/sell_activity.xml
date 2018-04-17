@@ -65,6 +65,7 @@
         android:layout_height="wrap_content"
         android:text="@string/sell_button"
         tools:layout_editor_absoluteX="135dp"
-        tools:layout_editor_absoluteY="325dp" />
+        tools:layout_editor_absoluteY="325dp"
+        tools:ignore="MissingConstraints" />
 
 </android.support.constraint.ConstraintLayout>
