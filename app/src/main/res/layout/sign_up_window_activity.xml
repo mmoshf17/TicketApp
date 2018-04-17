@@ -25,6 +25,22 @@
                 android:inputType="textPersonName" />
 
             <EditText
+                android:id="@+id/enter_your_email_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/enter_your_email"
+                android:inputType="textEmailAddress" />
+
+            <EditText
+                android:id="@+id/repeat_your_email_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/repeat_email"
+                android:inputType="textEmailAddress" />
+
+            <EditText
                 android:id="@+id/enter_password_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -40,21 +56,9 @@
                 android:hint="@string/repeat_password"
                 android:inputType="textPassword" />
 
-            <EditText
-                android:id="@+id/enter_your_email_address"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/enter_your_email"
-                android:inputType="textEmailAddress" />
 
-            <EditText
-                android:id="@+id/repeat_your_email_address"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/repeat_email"
-                android:inputType="textEmailAddress" />
+
+
         </LinearLayout>
 
     </ScrollView>
@@ -76,5 +80,15 @@
         android:layout_alignEnd="@+id/upload_photo_button"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="18dp"
+        android:onClick="signupBt"
         android:text="@string/sign_up_in_selection" />
+
+    <TextView
+        android:id="@+id/signupError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/sign_up_button_in_sign_up"
+        android:layout_marginEnd="25dp"
+        android:layout_toStartOf="@+id/upload_photo_button"
+        android:text="" />
 </RelativeLayout>

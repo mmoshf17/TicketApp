@@ -1,36 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.gvida.ticketapp2.MainMenuActivity">
+    tools:context="com.example.gvida.ticketapp2.MainMenuActivity"
+    android:id="@+id/DrawerLayout">
 
-    <Button
-        android:id="@+id/searching_button"
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="22dp"
-        android:text="@string/Search_button" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/upload_button"
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:id="@+id/toolbar"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            />
+
+
+
+        <ListView
+            android:id="@+id/list_view_posts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/content_frame"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/searching_button"
-        android:layout_marginTop="13dp"
-        android:text="@string/Upload_button" />
+        android:layout_height="match_parent" />
 
-    <Button
-        android:id="@+id/request_buttons"
+
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_id"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/upload_button"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="19dp"
-        android:text="@string/Request_button" />
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:menu="@menu/navigation_menu"
+        app:headerLayout="@layout/nav_header">
 
-</RelativeLayout>
+    </android.support.design.widget.NavigationView>
+
+</android.support.v4.widget.DrawerLayout>
+
