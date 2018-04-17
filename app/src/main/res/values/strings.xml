@@ -43,7 +43,8 @@
     <string name="ticket_name">Ticket Name</string>
     <string name="auction_bid">Auction/Bid</string>
     <string name="buy_it_now">Buy it now</string>
-    <string name="">price for ticket</string>
+    <string name="sell_button">Sell</string>
+
 
 
 
