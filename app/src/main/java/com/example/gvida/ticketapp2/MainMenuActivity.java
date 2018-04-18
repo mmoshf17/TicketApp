@@ -88,16 +88,11 @@ public class MainMenuActivity extends AppCompatActivity {
 
                     Intent intent3 = new Intent(getApplicationContext(), LogInActivity.class);
                     startActivity(intent3);
-
-
-
-                 //  Toast.makeText(getApplicationContext(), "this", Toast.LENGTH_SHORT).show();
                     break;
 
                 case R.id.request_your_ticket:
                     Intent intent = new Intent(getApplicationContext(), RequestActivity.class);
                     startActivity(intent);
-                    Toast.makeText(getApplicationContext(), "this", Toast.LENGTH_SHORT).show();
                     break;
 
                 case R.id.Sell_your_ticket:

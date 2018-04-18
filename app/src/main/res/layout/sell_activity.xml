@@ -1,71 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/ticket_name"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="56dp" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/price_ticket"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="116dp" />
+        android:paddingBottom="20dp"/>
 
     <EditText
         android:id="@+id/editText4"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="135dp"
-        tools:layout_editor_absoluteY="46dp" />
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/price_ticket"
+        android:paddingBottom="20dp"/>
 
     <EditText
         android:id="@+id/editText5"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="135dp"
-        tools:layout_editor_absoluteY="106dp"
-        tools:ignore="MissingConstraints" />
+        android:inputType="textPersonName" />
 
-    <RadioButton
-        android:id="@+id/radioButton2"
+    <LinearLayout
+        android:paddingTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/auction_bid"
-        tools:layout_editor_absoluteX="138dp"
-        tools:layout_editor_absoluteY="180dp" />
+        android:orientation="horizontal"
+        android:paddingBottom="20dp">
 
-    <RadioButton
-        android:id="@+id/radioButton3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/buy_it_now"
-        tools:layout_editor_absoluteX="137dp"
-        tools:layout_editor_absoluteY="230dp"
-        tools:ignore="MissingConstraints" />
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/buy_it_now" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/auction_bid" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/sell_button"
-        tools:layout_editor_absoluteX="135dp"
-        tools:layout_editor_absoluteY="325dp"
-        tools:ignore="MissingConstraints" />
+        android:text="@string/sell_button" />
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
