@@ -15,4 +15,6 @@ public class SellActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sell_activity);
 
+
+
     }}

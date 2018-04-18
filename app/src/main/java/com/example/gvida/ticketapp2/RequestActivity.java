@@ -26,6 +26,8 @@ import android.widget.Toast;
 public class RequestActivity extends AppCompatActivity
 {
 
+    Button requestButton;
+
     //this is for the side menu
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle mToggle;
@@ -55,6 +57,12 @@ public class RequestActivity extends AppCompatActivity
             }
         };
 
+        requestButton = findViewById(R.id.request_button_in_request_page);
+        requestButton.setOnClickListener(e -> {
+            Toast.makeText(getApplicationContext(), "this button is pressed", Toast.LENGTH_SHORT).show();
+        });
+
+        //drawer layout
         drawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
 

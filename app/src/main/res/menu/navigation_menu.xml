@@ -2,29 +2,28 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/navigation_menu">
 
-    Icons for the side bar
     <group android:checkableBehavior="single">
 
         <item android:id="@+id/Home"
             android:icon="@drawable/ic_main_menu"
-            android:title="Home"/>
+            android:title="@string/home"/>
 
         <item android:id="@+id/Account"
             android:icon="@drawable/ic_action_account_settings"
-            android:title="Account settings"
+            android:title="@string/account_settings"
             />
 
         <item android:id="@+id/request_your_ticket"
             android:icon="@drawable/ic_send_request_for_ticket"
-            android:title="Request your ticket"/>
+            android:title="@string/Request_button"/>
 
         <item android:id="@+id/Sell_your_ticket"
             android:icon="@drawable/ic_sell_your_ticket"
-            android:title="Sell your ticket"/>
+            android:title="@string/Upload_button"/>
 
         <item android:id="@+id/Settings"
             android:icon="@drawable/ic_access_your_settings"
-            android:title="Settings"/>
+            android:title="@string/settings"/>
     </group>
 
 

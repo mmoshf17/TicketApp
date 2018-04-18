@@ -46,6 +46,11 @@
     <string name="buy_it_now">Buy it now</string>
     <string name="sell_button">Sell</string>
 
+    //items for the menu
+    <string name="search_icon">Search Icon</string>
+    <string name="home">Home</string>
+    <string name="settings">Settings</string>
+    <string name="account_settings">Account settings</string>
 
     //nav_header
     <string name="my_header_title">My header title</string>
@@ -53,4 +58,7 @@
     //This is for the side menu
     <string name="open">Open</string>
     <string name="close">Close</string>
+
+    //request page
+    <string name="request_button_in_request_page">Request</string>
 </resources>
