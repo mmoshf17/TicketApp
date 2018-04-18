@@ -81,7 +81,7 @@ public class RequestActivity extends AppCompatActivity
                     break;
 
                 case R.id.Sell_your_ticket:
-                    Intent intent1 = new Intent(getApplicationContext(), UploadActivity.class);
+                    Intent intent1 = new Intent(getApplicationContext(), SellActivity.class);
                     startActivity(intent1);
                     break;
 
