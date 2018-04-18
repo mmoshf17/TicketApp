@@ -40,13 +40,15 @@
 
     //Sell your ticket
     <string name="price_ticket">Price</string>
+    <string name="description_for_selling_ticket">Description</string>
     <string name="ticket_name">Ticket Name</string>
     <string name="auction_bid">Auction/Bid</string>
     <string name="buy_it_now">Buy it now</string>
     <string name="sell_button">Sell</string>
 
 
-
+    //nav_header
+    <string name="my_header_title">My header title</string>
 
     //This is for the side menu
     <string name="open">Open</string>

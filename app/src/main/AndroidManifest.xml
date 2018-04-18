@@ -17,17 +17,19 @@
             </intent-filter>
         </activity>
         <activity android:name=".SearchActivity" android:parentActivityName=".MainMenuActivity"
-            ></activity>
+            > </activity>
+        <activity android:name=".SellActivity" android:parentActivityName=".LogInActivity"
+            > </activity>
         <activity android:name=".UploadActivity" android:parentActivityName=".MainMenuActivity"
-            ></activity>
+            > </activity>
         <activity android:name=".RequestActivity" android:parentActivityName=".MainMenuActivity"
-            ></activity>
+            > </activity>
         <activity android:name=".LogInActivity" android:parentActivityName=".MainMenuActivity"
-            ></activity>
+            > </activity>
         <activity android:name=".LogInWindowActivity" android:parentActivityName=".LogInActivity"
-            ></activity>
+            > </activity>
         <activity android:name=".SignUpWindowActivity" android:parentActivityName=".LogInActivity"
-            ></activity>
+            > </activity>
 
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
