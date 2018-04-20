@@ -40,6 +40,7 @@
 
     <TextView
         android:id="@+id/Lable"
+        android:textColor="#ff0000"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -47,5 +48,5 @@
         android:layout_below="@+id/linearLayout"
         android:layout_marginStart="32dp"
         android:layout_marginTop="25dp"
-        android:text="Here is your lable" />
+        android:text=" "/>
 </RelativeLayout>

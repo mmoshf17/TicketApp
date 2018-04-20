@@ -29,6 +29,12 @@
     <string name="enter_your_email">Enter your email</string>
     <string name="repeat_email">Repeat your email</string>
 
+
+    //login
+    <string name="label_error">Here is your label</string>
+    <string name="lable_error_text">k</string>
+
+
     // example list of posts
     <string-array name="list_of_posts_array">
         <item>test1</item>
@@ -44,7 +50,7 @@
     <string name="ticket_name">Ticket Name</string>
     <string name="auction_bid">Auction/Bid</string>
     <string name="buy_it_now">Buy it now</string>
-    <string name="sell_button">Sell</string>
+    <string name="upload_post">Upload</string>
 
     //items for the menu
     <string name="search_icon">Search Icon</string>

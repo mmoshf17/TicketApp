@@ -6,6 +6,12 @@
     android:orientation="vertical">
 
     <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp"/>
+
+    <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,6 +23,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName" />
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp"/>
 
     <TextView
         android:id="@+id/textView2"
@@ -54,9 +66,11 @@
 
 
     <Button
+
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/sell_button" />
+        android:text="@string/upload_post" />
+
 
 </LinearLayout>
