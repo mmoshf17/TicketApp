@@ -19,10 +19,11 @@
         android:paddingBottom="20dp"/>
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/ticketName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName" />
+
 
     <TextView
 
@@ -38,10 +39,31 @@
         android:paddingBottom="20dp"/>
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/ticketPrice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName" />
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp"/>
+
+    <TextView
+        android:id="@+id/desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/description_for_selling_ticket"
+        android:paddingBottom="20dp"/>
+
+
+
+    <EditText
+        android:id="@+id/ticketDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine" />
 
     <LinearLayout
         android:paddingTop="20dp"
@@ -62,7 +84,6 @@
             android:layout_height="wrap_content"
             android:text="@string/auction_bid" />
     </LinearLayout>
-
 
 
     <Button
