@@ -67,4 +67,8 @@
 
     //request page
     <string name="request_button_in_request_page">Request</string>
+
+    //Profile Activity
+    <string name="log_out">Log Out</string>
+
 </resources>

@@ -1,8 +1,11 @@
 package com.example.gvida.ticketapp2;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
@@ -27,7 +30,14 @@ import java.util.Iterator;
 
 
 public class LogInWindowActivity extends AppCompatActivity
+
+
+
 {
+
+    TextView lblTest;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -39,12 +49,34 @@ public class LogInWindowActivity extends AppCompatActivity
 
     }
 
-    public void loginBt(View view) {
+
+    public void loginBt(View view)
+    {
+
+
         new HttpClient().execute();
+
+
+
+
+    }
+
+
+
+
+    public void loginTest(View view) {
+        lblTest = findViewById(R.id.lbltest);
+        SharedPreferences sharedPref = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+
+        String t  = sharedPref.getString("token", "");
+
+        lblTest.setText(t);
+
     }
 
 
     public class HttpClient extends AsyncTask<String, Void, Void> {
+
 
         EditText user_login = (EditText)findViewById(R.id.log_in_name);
         EditText user_pass = (EditText)findViewById(R.id.log_in_password);
@@ -60,6 +92,10 @@ public class LogInWindowActivity extends AppCompatActivity
                 postDataParams.put("username", user_login.getText());
                 postDataParams.put("password", user_pass.getText());
 
+
+               // To use it locally.
+               // url = new URL("http://ticketapplication1.azurewebsites.net/api/Account/Login");
+                //url = new URL("http://10.0.2.2:61902/api/Account/Login");
 
                 url = new URL("http://ticketapp.shiftbook.dk/api/Account/Login");
                 urlConnection = (HttpURLConnection) url.openConnection();
@@ -83,11 +119,26 @@ public class LogInWindowActivity extends AppCompatActivity
                 if(responseCode == HttpURLConnection.HTTP_OK){
 
 
+                    String responseString = readStream(urlConnection.getInputStream());
+                    JSONObject obj = new JSONObject(responseString);
+
+                    String loginCrd = responseString;
+
+
+                    String kept = loginCrd.substring(17, loginCrd.indexOf(",") -1);
+
+                    //String remainder = loginCrd.substring(loginCrd.indexOf(",")+1, loginCrd.length());
+
+                    SharedPreferences sharedPref = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPref.edit();
+
+                    editor.putString("token", kept);
+                    editor.apply();
+
                         Intent intent = new Intent(LogInWindowActivity.this, MainMenuActivity.class);
                         startActivity(intent);
 
-                    String responseString = readStream(urlConnection.getInputStream());
-                    String books = responseString;
+
 
 
                 }else{

@@ -1,6 +1,8 @@
 package com.example.gvida.ticketapp2;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -14,9 +16,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 
 public class MainMenuActivity extends AppCompatActivity {
 
@@ -64,7 +68,9 @@ public class MainMenuActivity extends AppCompatActivity {
             }
         };
 
+        SharedPreferences sharedPref = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
 
+        String token = sharedPref.getString("token", "");
 
         drawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
@@ -83,9 +89,18 @@ public class MainMenuActivity extends AppCompatActivity {
 
                 case R.id.Account:
 
+                    if (Objects.equals(token, "")){
+
                     Intent intent3 = new Intent(getApplicationContext(), LogInActivity.class);
                     startActivity(intent3);
-                    break;
+                    break;}
+
+                    else if (!Objects.equals(token, "")){
+                        Intent intent4 = new Intent(getApplicationContext(), ProfileActivity.class);
+                        startActivity(intent4);
+                        break;
+                    }
+
 
                 case R.id.request_your_ticket:
                     Intent intent = new Intent(getApplicationContext(), RequestActivity.class);
@@ -93,13 +108,30 @@ public class MainMenuActivity extends AppCompatActivity {
                     break;
 
                 case R.id.Sell_your_ticket:
-                    Intent intent1 = new Intent(getApplicationContext(), SellActivity.class);
-                    startActivity(intent1);
-                    break;
+
+                    if (Objects.equals(token, "")){
+
+                        Intent intent7 = new Intent(getApplicationContext(), LogInActivity.class);
+                        startActivity(intent7);
+
+                        Toast.makeText(getApplicationContext(), "Please login/signup, to sell a ticket.",
+                                    Toast.LENGTH_LONG).show();
+
+                        break;
+                    }
+
+                    else if (!Objects.equals(token, "")){
+
+                        Intent intent1 = new Intent(getApplicationContext(), SellActivity.class);
+                        startActivity(intent1);
+                        break;
+                    }
+
             }
             return false;
         });
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem menuItem)
