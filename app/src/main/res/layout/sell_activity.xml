@@ -1,97 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
-
-    <TextView
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingBottom="20dp"/>
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/ticket_name"
-        android:paddingBottom="20dp"/>
-
-    <EditText
-        android:id="@+id/ticketName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName" />
-
-
-    <TextView
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingBottom="20dp"/>
+        android:text="Name"
+        tools:layout_editor_absoluteX="174dp"
+        tools:layout_editor_absoluteY="40dp" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/price_ticket"
-        android:paddingBottom="20dp"/>
-
-    <EditText
-        android:id="@+id/ticketPrice"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName" />
+        android:text="Price"
+        tools:layout_editor_absoluteX="176dp"
+        tools:layout_editor_absoluteY="79dp" />
 
     <TextView
-
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="20dp"/>
-
-    <TextView
-        android:id="@+id/desc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/description_for_selling_ticket"
-        android:paddingBottom="20dp"/>
-
-
+        android:text="auction or bid"
+        tools:layout_editor_absoluteX="153dp"
+        tools:layout_editor_absoluteY="117dp" />
 
     <EditText
-        android:id="@+id/ticketDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textMultiLine" />
-
-    <LinearLayout
-        android:paddingTop="20dp"
+        android:id="@+id/editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="20dp">
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Fixed"
+        tools:layout_editor_absoluteX="84dp"
+        tools:layout_editor_absoluteY="223dp" />
 
-        <RadioButton
-            android:id="@+id/radioButton3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/buy_it_now" />
-
-        <RadioButton
-            android:id="@+id/radioButton2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/auction_bid" />
-    </LinearLayout>
-
-
-    <Button
-
-        android:id="@+id/button"
-        android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/upload_post" />
-
-
-</LinearLayout>
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Auction"
+        tools:layout_editor_absoluteX="85dp"
+        tools:layout_editor_absoluteY="335dp" />
+</android.support.constraint.ConstraintLayout>
