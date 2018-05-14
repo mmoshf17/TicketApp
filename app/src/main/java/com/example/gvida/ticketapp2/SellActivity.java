@@ -6,11 +6,13 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONObject;
@@ -56,7 +58,7 @@ public class SellActivity extends AppCompatActivity{
     public class HttpClient3 extends AsyncTask<String, Void, Void> {
 
 
-        EditText ticketName = (EditText)findViewById(R.id.ticketName);
+        EditText ticketName = findViewById(R.id.ticketName);
         EditText ticketPrice = (EditText)findViewById(R.id.ticketPrice);
         EditText ticketDescription = (EditText)findViewById(R.id.ticketDescription);
         RadioGroup radioGroup = (RadioGroup)findViewById(R.id.radio);

@@ -7,11 +7,21 @@
     tools:context="com.example.gvida.ticketapp2.MainMenuActivity"
     android:id="@+id/DrawerLayout">
 
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="350dp">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="250dp"
+        android:orientation="vertical"
+        android:background="@drawable/gradientbackground">
+
+        <Button
+            android:id="@+id/go_to_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button" />
 
         <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
@@ -20,21 +30,50 @@
             android:background="@color/colorPrimary"
             />
 
-
-
-        <ListView
-            android:id="@+id/list_view_posts"
+        <LinearLayout
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="40dp">
 
+
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/event_choice_1" />
+
+            <RadioButton
+                android:id="@+id/radioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/sports_choice_2" />
+
+            <RadioButton
+                android:id="@+id/radioButton3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/flight_choice_3" />
+
+        </LinearLayout>
+
+        <android.support.v7.widget.SearchView
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            />
     </LinearLayout>
+</RelativeLayout>
 
     <FrameLayout
         android:id="@+id/content_frame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-
+        android:layout_height="match_parent"/>
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_id"

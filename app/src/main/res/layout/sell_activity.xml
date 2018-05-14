@@ -1,109 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <TextView
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingBottom="20dp"/>
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/ticket_name"
-        android:paddingBottom="20dp"/>
-
-    <EditText
-        android:id="@+id/ticketName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName" />
-
-
-    <TextView
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingBottom="20dp"/>
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/price_ticket"
-        android:paddingBottom="20dp"/>
-
-    <EditText
-        android:id="@+id/ticketPrice"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName" />
-
-    <TextView
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingBottom="20dp"/>
-
-    <TextView
-        android:id="@+id/desc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/description_for_selling_ticket"
-        android:paddingBottom="20dp"/>
-
-
-
-    <EditText
-        android:id="@+id/ticketDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textMultiLine" />
-
     <LinearLayout
-        android:paddingTop="20dp"
-        android:layout_width="wrap_content"
+        android:id="@+id/first_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="20dp">
+        android:orientation="vertical"
+        >
 
-
-        <RadioGroup
-            android:id="@+id/radio"
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-        <RadioButton
-            android:id="@+id/radioBuy"
+        <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/buy_it_now"
+            android:background="@color/colorPrimaryDark"/>
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20dp"/>
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ticket_name"
+            android:paddingBottom="20dp"/>
+        <EditText
+            android:id="@+id/ticketName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName" />
+
+
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/price_ticket"
+            android:paddingBottom="20dp"/>
+
+        <EditText
+            android:id="@+id/ticketPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName" />
+
+
+
+        <TextView
+            android:id="@+id/desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/description_for_selling_ticket"
+            android:paddingBottom="20dp"/>
+
+
+
+        <EditText
+            android:id="@+id/ticketDescription"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             />
 
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/second_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_below="@+id/first_layout"
+
+        >
         <RadioButton
-            android:id="@+id/radioAuction"
+            android:id="@+id/radioBuy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/buy_it_now"
+            android:layout_marginEnd="30dp"/>
+
+        <RadioButton
+            android:id="@+id/radioAuction3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/auction_bid"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <Button
+
+            android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/auction_bid" />
-
-        </RadioGroup>
-
+            android:background="@drawable/ripple"
+            android:onClick="upload"
+            android:text="@string/upload_post"
+            />
     </LinearLayout>
 
 
-    <Button
-
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/upload_post"
-        android:onClick="upload"
-        />
-
-
-</LinearLayout>
+</RelativeLayout>
