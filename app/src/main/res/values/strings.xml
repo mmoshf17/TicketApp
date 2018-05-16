@@ -93,4 +93,9 @@
     //Profile Activity
     <string name="log_out">Log Out</string>
 
+    //Radio buttons in main menu
+    <string name="flight_choice_3">Flights</string>
+    <string name="sports_choice_2">Sports</string>
+    <string name="event_choice_1">Events</string>
+
 </resources>
