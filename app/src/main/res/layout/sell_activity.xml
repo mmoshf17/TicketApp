@@ -6,151 +6,134 @@
     android:orientation="vertical"
     android:id="@+id/drawerLayout_sell_Activity">
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar_sell_activity"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark"
-        android:theme="@style/ToolBarStyle">
+        android:layout_height="match_parent">
 
-    </android.support.v7.widget.Toolbar>
-    <EditText
-        android:id="@+id/ticketName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/ticket_name"
-        android:inputType="textPersonName" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar_sell_activity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimaryDark"
+                android:theme="@style/ToolBarStyle"/>
+
+            <EditText
+                android:id="@+id/ticketName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/ticket_name"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/ticketPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/price_ticket"
+                android:inputType="textPersonName" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Button
+                    android:layout_marginStart="90dp"
+                    android:id="@+id/selectDateTime"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/select_date"
+                    android:background="@drawable/ripple"
+                    />
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="140dp"
+                    android:id="@+id/dateTimeResult"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/select_category" />
+
+                <Spinner
+                    android:id="@+id/dropDownCatagory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </Spinner>
+
+            </LinearLayout>
 
 
-    <TextView
+            <TextView
 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
+            <EditText
+                android:id="@+id/ticketDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lines="3"
+                android:hint="@string/description_for_selling_ticket"
+                android:inputType="textMultiLine" />
 
-
-    <EditText
-        android:id="@+id/ticketPrice"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/price_ticket"
-        android:inputType="textPersonName" />
-
-    <TextView
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="20dp"
+                android:paddingTop="20dp">
 
 
+                <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/radio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="80dp">
+
+                    <RadioButton
+                        android:id="@+id/radioBuy"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/buy_it_now" />
+
+                    <RadioButton
+                        android:id="@+id/radioAuction"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/auction_bid" />
+
+                </RadioGroup>
+
+            </LinearLayout>
+        </LinearLayout>
 
         <Button
-
-
-            android:id="@+id/selectDateTime"
-            android:layout_width="wrap_content"
+            android:id="@+id/button"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/select_date"
-            />
-
-        <TextView
-
-            android:id="@+id/dateTimeResult"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ripple" />
-
-    </LinearLayout>
-
-    <TextView
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/select_category" />
-
-        <Spinner
-            android:id="@+id/dropDownCatagory"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-        </Spinner>
-
-    </LinearLayout>
-
-
-    <TextView
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-
-
-
-    <EditText
-        android:id="@+id/ticketDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:lines="3"
-        android:hint="@string/description_for_selling_ticket"
-        android:inputType="textMultiLine" />
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="20dp"
-        android:paddingTop="20dp">
-
-
-        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/radio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <RadioButton
-                android:id="@+id/radioBuy"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/buy_it_now" />
-
-            <RadioButton
-                android:id="@+id/radioAuction"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/auction_bid" />
-
-        </RadioGroup>
-
-    </LinearLayout>
-
-
-    <Button
-
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/ripple"
-        android:onClick="upload"
-        android:text="@string/upload_post" />
-</LinearLayout>
+            android:background="@drawable/ripple"
+            android:onClick="upload"
+            android:text="@string/upload_post"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
 
     <FrameLayout
         android:id="@+id/content_frame"
