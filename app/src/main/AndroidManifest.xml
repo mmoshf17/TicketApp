@@ -13,7 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".MainMenuActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,7 +27,7 @@
             android:parentActivityName=".MainMenuActivity"> </activity>
         <activity
             android:name=".SellActivity"
-            android:parentActivityName=".LogInActivity"> </activity>
+            android:parentActivityName=".MainMenuActivity"> </activity>
         <activity
             android:name=".RequestActivity"
             android:parentActivityName=".MainMenuActivity"> </activity>
@@ -40,6 +42,9 @@
             android:parentActivityName=".LogInActivity"> </activity>
         <activity android:name=".ProfileActivity"
             android:parentActivityName=".MainMenuActivity"> </activity>
+        <activity android:name=".TicketDetails"
+            android:parentActivityName=".MainMenuActivity"
+            android:windowSoftInputMode="stateHidden"/>
     </application>
 
 </manifest>
