@@ -18,6 +18,7 @@ public class Tickets implements Serializable {
     private String name;
     private String price;
     private String description;
+    private String events;
     //private boolean isAuction;
 
     public Tickets(int ticketId, String user, String category, String startingDate, String email, String name, String price, String description){
@@ -54,6 +55,8 @@ public Tickets(){
     public String getName() { return name;
     }
 
+    public String getEvents() { return events;
+    }
 
     public String getPrice() { return price;
     }

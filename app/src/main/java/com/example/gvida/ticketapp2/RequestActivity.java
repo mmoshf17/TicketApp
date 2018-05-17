@@ -1,6 +1,8 @@
 package com.example.gvida.ticketapp2;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -18,6 +20,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.SearchView;
 import android.widget.Toast;
+
+import java.util.Objects;
 
 /**
  * Created by gvida on 20/03/2018.
@@ -70,6 +74,11 @@ public class RequestActivity extends AppCompatActivity
         nv.setNavigationItemSelectedListener(item -> {
             if(item.isChecked()) item.setChecked(false);
             else item.setChecked(true);
+
+            SharedPreferences sharedPref = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+
+            String token = sharedPref.getString("token", "");
+
             drawerLayout.closeDrawers();
             switch (item.getItemId())
             {
@@ -79,7 +88,16 @@ public class RequestActivity extends AppCompatActivity
                     break;
 
                 case R.id.Account:
-                    Toast.makeText(getApplicationContext(), "this", Toast.LENGTH_SHORT).show();
+                    if (Objects.equals(token, "")) {
+
+                        Intent intent3 = new Intent(getApplicationContext(), LogInActivity.class);
+                        startActivity(intent3);
+                        break;
+                    } else if (!Objects.equals(token, "")) {
+                        Intent intent4 = new Intent(getApplicationContext(), ProfileActivity.class);
+                        startActivity(intent4);
+                        break;
+                    }
                     break;
 
                 case R.id.request_your_ticket:

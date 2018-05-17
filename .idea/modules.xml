@@ -2,14 +2,17 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://D:\P2 Project\TicketApp2\.idea\TicketApp.iml" filepath="D:\P2 Project\TicketApp2\.idea\TicketApp.iml" />
-      <module fileurl="file://C:\Users\gvida\Downloads\TicketApp2\TicketApp.iml" filepath="C:\Users\gvida\Downloads\TicketApp2\TicketApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TicketApp.iml" filepath="$PROJECT_DIR$/TicketApp.iml" />
       <module fileurl="file://D:\P2 Project\TicketApp2\TicketApp.iml" filepath="D:\P2 Project\TicketApp2\TicketApp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/TicketApp2.iml" filepath="$PROJECT_DIR$/TicketApp2.iml" />
+      <module fileurl="file://C:\Users\gvida\Downloads\TicketApp2\TicketApp.iml" filepath="C:\Users\gvida\Downloads\TicketApp2\TicketApp.iml" />
+      <module fileurl="file://D:\P2 Project\TicketApp2\.idea\TicketApp.iml" filepath="D:\P2 Project\TicketApp2\.idea\TicketApp.iml" />
       <module fileurl="file://C:\gvido\Gvido failai\TicketApp\TicketApp2.iml" filepath="C:\gvido\Gvido failai\TicketApp\TicketApp2.iml" />
       <module fileurl="file://C:\Users\Rehan Mir\Documents\ITCOM - AAU\2. semester\TicketApp\TicketApp2.iml" filepath="C:\Users\Rehan Mir\Documents\ITCOM - AAU\2. semester\TicketApp\TicketApp2.iml" />
+      <module fileurl="file://D:\P2 Project\TicketApp2\TicketApp\TicketApp2.iml" filepath="D:\P2 Project\TicketApp2\TicketApp\TicketApp2.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://D:\P2 Project\TicketApp2\TicketApp\app\app.iml" filepath="D:\P2 Project\TicketApp2\TicketApp\app\app.iml" />
       <module fileurl="file://$PROJECT_DIR$/jtds-1.3.1/jtds-1.3.1.iml" filepath="$PROJECT_DIR$/jtds-1.3.1/jtds-1.3.1.iml" />
+      <module fileurl="file://D:\P2 Project\TicketApp2\TicketApp\jtds-1.3.1\jtds-1.3.1.iml" filepath="D:\P2 Project\TicketApp2\TicketApp\jtds-1.3.1\jtds-1.3.1.iml" />
     </modules>
   </component>
 </project>

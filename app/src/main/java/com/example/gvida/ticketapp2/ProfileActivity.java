@@ -84,7 +84,7 @@ public class ProfileActivity extends AppCompatActivity {
 
                 case R.id.Account:
 
-                    Intent intent3 = new Intent(getApplicationContext(), LogInActivity.class);
+                    Intent intent3 = new Intent(getApplicationContext(), ProfileActivity.class);
                     startActivity(intent3);
                     break;
 

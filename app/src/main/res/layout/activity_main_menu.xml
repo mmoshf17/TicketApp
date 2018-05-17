@@ -11,6 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
+
         <LinearLayout
             android:id="@+id/first_layout_main_menu"
             android:layout_width="match_parent"
@@ -26,17 +28,20 @@
                 android:theme="@style/ToolBarStyle"
                 />
             <RadioGroup
+                android:id="@+id/radiobtns"
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginStart="30dp">
+                android:layout_marginStart="30dp"
+                >
 
 
                 <android.support.v7.widget.AppCompatRadioButton
                     android:textColor="@color/white"
                     android:buttonTint="@drawable/radio_button"
                     android:id="@+id/radioButton2"
+                    android:checked = "true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -62,12 +67,39 @@
 
             </RadioGroup>
 
-            <android.support.v7.widget.SearchView
+            <!--<android.support.v7.widget.SearchView
                 android:layout_margin="20dp"
-                android:layout_width="match_parent"
+                android:layout_width="230dp"
                 android:layout_height="wrap_content"
                 android:background="#fff"
-                />
+                android:id="@+id/search_view"
+                />-->
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <android.support.v7.widget.AppCompatEditText
+                    android:layout_margin="20dp"
+                    android:layout_width="218dp"
+                    android:layout_height="wrap_content"
+                    android:background="#fff"
+                    android:hint="@string/search_main_menu"
+                    android:id="@+id/search_view"
+                    />
+
+                <Button
+                    android:id="@+id/search_btn"
+                    android:layout_margin="20dp"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="btnSearch"
+                    android:text="@string/Search_button" />
+
+            </LinearLayout>
+
 
 
         </LinearLayout>
@@ -98,7 +130,10 @@
     <FrameLayout
         android:id="@+id/content_frame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent" >
+
+
+    </FrameLayout>
 
 
 
