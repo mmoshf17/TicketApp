@@ -43,6 +43,8 @@ private Tickets tickets;
         //Shows only events on the beginning of the activity
         super.onStart();
         ReadTask task3 = new ReadTask();
+
+
         task3.execute("http://ticketapp.shiftbook.dk//api/GetTicket/GetTicketByCategory/?category=" + events);
     }
 
@@ -79,25 +81,6 @@ private Tickets tickets;
 
 
 
-        //search navigation code is here
-
-      /*  searchView = findViewById(R.id.search_view);
-
-
-
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(CharSequence newText) {
-                MainMenuActivity.
-                return false;
-            }
-        });*/
 
         //Side menu stuff
         drawerLayout = findViewById(R.id.DrawerLayout);
@@ -236,7 +219,7 @@ private Tickets tickets;
 
         try {
 
-           CharSequence rws =  task4.execute("http://ticketapp.shiftbook.dk//api/GetTicket/GetSearchTicket/?name=" + editText.getText().toString()
+           CharSequence rws =  task4.execute("http://ticketapp.shiftbook.dk/api/GetTicket/GetSearchTicket/?name=" + editText.getText().toString()
                    + "&categoryId=" + selectedCat).get();
 
 
@@ -262,6 +245,7 @@ private Tickets tickets;
 
             TextView messageTextView = findViewById(R.id.show_list);
 
+
             //Gets the data from database and show all tickets into list by using loop
             final List<Tickets> tkt1 = new ArrayList<>();
 
@@ -278,13 +262,16 @@ private Tickets tickets;
                     String description = obj.getString("Description");
                     String user = obj.getString("User");
                     String email = obj.getString("Email");
-                    // boolean isAution = obj.getBoolean("isAuction");
-                    // String userId = obj.getString("userId");
+                    //String isAuction = obj.getString("IsAuction");
+
+
                     //Created object of the Ticket class, to access the class & Passing values to the constructor
                     Tickets tkt = new Tickets(ticketId, user, category, startingDate, email, name, price, description);
                     //Tickets tkt = new Tickets(name);
                     //Adding values to the list
                     tkt1.add(tkt);
+
+
 
 
 

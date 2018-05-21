@@ -1,6 +1,8 @@
 package com.example.gvida.ticketapp2;
 
 import android.app.DatePickerDialog;
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -214,6 +216,8 @@ public class SellActivity extends AppCompatActivity implements DatePickerDialog.
     }
 
 
+
+
     //Selling a Ticket
     public class HttpClient3 extends AsyncTask<String, Void, Void> {
 
@@ -221,7 +225,7 @@ public class SellActivity extends AppCompatActivity implements DatePickerDialog.
         EditText ticketName = (EditText) findViewById(R.id.ticketName);
         EditText ticketPrice = (EditText) findViewById(R.id.ticketPrice);
         EditText ticketDescription = (EditText) findViewById(R.id.ticketDescription);
-        RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radio);
+        //RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radio);
         Spinner spinner = findViewById(R.id.dropDownCatagory);
         //RadioButton radioBuy = (RadioButton)findViewById(R.id.radioBuy);
         //RadioButton radioAuction = (RadioButton)findViewById(R.id.radioAuction);
@@ -240,13 +244,13 @@ public class SellActivity extends AppCompatActivity implements DatePickerDialog.
                 postDataParams.put("price", ticketPrice.getText());
                 postDataParams.put("description", ticketDescription.getText());
 
-                int selectedId = radioGroup.getCheckedRadioButtonId();
-                RadioButton radioButton = findViewById(selectedId);
-                String bla = radioButton.getText().toString();
-                boolean isAuction = !new String(bla.toString()).equals("Buy it now");
+                //int selectedId = radioGroup.getCheckedRadioButtonId();
+                //RadioButton radioButton = findViewById(selectedId);
+                //String auctionValue = radioButton.getText().toString();
+                //boolean isAuction = !new String(auctionValue.toString()).equals("Buy it now");
 
 
-                postDataParams.put("isAuction", "True");
+                //postDataParams.put("isAuction", isAuction);
 
 
                 SharedPreferences sharedPref = getSharedPreferences("userInfo", Context.MODE_PRIVATE);

@@ -10,6 +10,7 @@ public class Comment {
     private String userId;
     private String comment;
     private String dateCreated;
+    //private String bid;
     //private String ticketId;
 
     public Comment(String userId, String comment){
@@ -18,6 +19,7 @@ public class Comment {
 
         this.userId = userId;
         this.comment = comment;
+        //this.bid = bid;
         //this.dateCreated = dateCreated;
         //this.ticketId = ticketId;
 

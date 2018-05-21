@@ -46,6 +46,8 @@ public class TicketDetails extends AppCompatActivity {
     private TextView user;
     private TextView price;
     private TextView description;
+    //private TextView isAuction;
+    //private EditText bid;
     //private ImageView imageView;
 
     @Override
@@ -78,6 +80,26 @@ public class TicketDetails extends AppCompatActivity {
        description = findViewById(R.id.description_txt);
         description.setText(ticket.getDescription());
 
+        /*isAuction = findViewById(R.id.auction);
+        if (ticket.getisAcution().equals("true"))
+        {
+            isAuction.setText("Auction");
+        }
+        else{
+            isAuction.setText("Buy it now");
+        }
+
+        bid = findViewById(R.id.bidding);
+
+        if (ticket.getisAcution().equals("false")){
+
+            bid.setVisibility(View.GONE);
+        }
+
+        else{
+            bid.setVisibility(View.VISIBLE);
+        }*/
+
 
     }
 
@@ -102,6 +124,7 @@ public class TicketDetails extends AppCompatActivity {
                     //String ticketId = obj.getString("TicketId");
                     String userId = obj.getString("UserId");
                     String comment = obj.getString("Comment");
+                    //String bid = obj.getString("Bid");
                    // String dateCreated = obj.getString("DateCreated");
 
                     // boolean isAution = obj.getBoolean("isAuction");
@@ -139,7 +162,8 @@ public class TicketDetails extends AppCompatActivity {
     public class HttpClient9 extends AsyncTask<String, Void, Void> {
 
 
-        EditText s = (EditText) findViewById(R.id.CommentBox);
+        EditText c = (EditText) findViewById(R.id.CommentBox);
+        //EditText b = (EditText) findViewById(R.id.bidding);
 
 
 
@@ -151,7 +175,8 @@ public class TicketDetails extends AppCompatActivity {
             try {
                 JSONObject postDataParams = new JSONObject();
                 postDataParams.put("ticketId", ticket.getTicketId());
-                postDataParams.put("comment", s.getText());
+                postDataParams.put("comment", c.getText());
+                //postDataParams.put("bid", b.getText());
 
 
                 SharedPreferences sharedPref = getSharedPreferences("userInfo", Context.MODE_PRIVATE);

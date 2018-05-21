@@ -13,7 +13,6 @@
 
     // menu options
     <string name="action_user">Icon</string>
-    <string name="Request_event_name">Name of the event</string>
     <string name="one_choice">One</string>
     <string name="two_choices">Two</string>
     <string name="description">Description</string>
@@ -76,10 +75,11 @@
     <string name="account_settings">Account settings</string>
 
     //TicketDetails Activity
-    <string name="price_for_detailsActivity">Price:</string>
-    <string name="description_for_detailsActivity">Description:</string>
-    <string name="email_for_detailsActivity">User Email:</string>
-    <string name="owner_for_detailsActivity">Owner</string>
+    <string name="price_for_detailsActivity">Price: "" </string>
+    <string name="description_for_detailsActivity">Description: "" </string>
+    <string name="email_for_detailsActivity">User Email: "" </string>
+    <string name="owner_for_detailsActivity">Owner: ""  </string>
+    <string name="buy_auction">Listing: ""  </string>
 
     //nav_header
     <string name="my_header_title">My header title</string>
@@ -90,6 +90,7 @@
 
     //request page
     <string name="request_button_in_request_page">Request</string>
+    <string name="Request_event_name">Wrtie the ticket name. We will send you a notification, when your ticket is available.</string>
 
     //Profile Activity
     <string name="log_out">Log Out</string>

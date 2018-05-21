@@ -12,16 +12,30 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/owner_for_detailsActivity" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/owner"
-        android:text="" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/owner_for_detailsActivity" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/owner"
+            android:text="" />
+    </LinearLayout>
+
+    <android.support.v4.widget.Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
 
     <TextView
         android:layout_width="wrap_content"
@@ -33,6 +47,16 @@
         android:layout_height="wrap_content"
         android:id="@+id/email_txt"
         android:text="" />
+
+</LinearLayout>
+
+    <android.support.v4.widget.Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
 
     <TextView
         android:layout_width="wrap_content"
@@ -46,6 +70,15 @@
         android:id="@+id/price_txt"
         android:text="" />
 
+</LinearLayout>
+
+    <android.support.v4.widget.Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
 
     <TextView
         android:layout_width="wrap_content"
@@ -58,6 +91,16 @@
         android:layout_height="wrap_content"
         android:id="@+id/description_txt"
         android:text="" />
+
+</LinearLayout>
+
+    <android.support.v4.widget.Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+
+
+
 
 
     <TextView

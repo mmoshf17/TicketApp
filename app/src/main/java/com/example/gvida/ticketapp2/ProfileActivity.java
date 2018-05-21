@@ -23,6 +23,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -34,6 +35,7 @@ public class ProfileActivity extends AppCompatActivity {
     private ActionBarDrawerToggle mToggle;
     private ImageView addProfilePic;
     Integer REQUEST_CAMERA = 1, SELECT_FILE = 0;
+    private TextView profileUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
