@@ -7,32 +7,133 @@
     tools:context="com.example.gvida.ticketapp2.MainMenuActivity"
     android:id="@+id/DrawerLayout">
 
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <android.support.v7.widget.Toolbar
+
+
+        <LinearLayout
+            android:id="@+id/first_layout_main_menu"
             android:layout_width="match_parent"
-            android:id="@+id/toolbar"
+            android:layout_height="200dp"
+            android:orientation="vertical"
+            android:background="@drawable/gradientbackground">
+
+            <android.support.v7.widget.Toolbar
+                android:layout_width="match_parent"
+                android:id="@+id/toolbar"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:theme="@style/ToolBarStyle"
+                />
+            <RadioGroup
+                android:id="@+id/radiobtns"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="30dp"
+                >
+
+
+                <android.support.v7.widget.AppCompatRadioButton
+                    android:textColor="@color/white"
+                    android:buttonTint="@drawable/radio_button"
+                    android:id="@+id/radioButton2"
+                    android:checked = "true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/event_choice_1" />
+
+                <android.support.v7.widget.AppCompatRadioButton
+                    android:textColor="@color/white"
+                    android:buttonTint="@drawable/radio_button"
+                    android:id="@+id/radioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/sports_choice_2" />
+
+                <android.support.v7.widget.AppCompatRadioButton
+                    android:textColor="@color/white"
+                    android:buttonTint="@drawable/radio_button"
+                    android:id="@+id/radioButton3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/flight_choice_3" />
+
+            </RadioGroup>
+
+            <!--<android.support.v7.widget.SearchView
+                android:layout_margin="20dp"
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:id="@+id/search_view"
+                />-->
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <android.support.v7.widget.AppCompatEditText
+                    android:layout_margin="20dp"
+                    android:layout_width="218dp"
+                    android:layout_height="wrap_content"
+                    android:background="#fff"
+                    android:hint="@string/search_main_menu"
+                    android:id="@+id/search_view"
+                    />
+
+                <Button
+                    android:id="@+id/search_btn"
+                    android:layout_margin="20dp"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="btnSearch"
+                    android:text="@string/Search_button" />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            />
+            android:orientation="vertical"
+            android:layout_below="@+id/first_layout_main_menu"
+            >
+
+            <ListView
+                android:id="@+id/list_view_posts"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
 
 
+            <TextView
+                android:id="@+id/show_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+    </RelativeLayout>
 
-        <ListView
-            android:id="@+id/list_view_posts"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
 
-    </LinearLayout>
 
     <FrameLayout
         android:id="@+id/content_frame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent" >
+
+
+    </FrameLayout>
 
 
 

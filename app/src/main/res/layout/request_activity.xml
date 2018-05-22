@@ -18,51 +18,29 @@
             android:background="@color/colorPrimary"> </android.support.v7.widget.Toolbar>
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/editTextName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:inputType="textMultiLine"
+            android:lines="2"
             android:hint="@string/Request_event_name"
-            android:inputType="textPersonName"
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:paddingTop="40dp" />
 
-        <EditText
-            android:id="@+id/editText2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="date"
-            />
+
+
+        <android.support.v4.widget.Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+
 
         <android.support.v4.widget.Space
             android:layout_width="match_parent"
             android:layout_height="20dp" />
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/text_input_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/description"
-            android:theme="@style/AppTheme">
-            <EditText
-                android:id="@+id/editText3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textMultiLine"
-                android:selectAllOnFocus="false"
-                android:singleLine="false">
-            </EditText>
-
-        </android.support.design.widget.TextInputLayout>
-
-
-        <android.support.v4.widget.Space
-            android:layout_width="match_parent"
-            android:layout_height="150dp"/>
 
         <Button
             android:id="@+id/request_button_in_request_page"
@@ -71,6 +49,7 @@
             android:background="@drawable/ripple"
             android:baselineAligned="false"
             android:text="@string/Request_button"
+            android:onClick="requestBtn"
             android:layout_gravity="center"
 
             />
