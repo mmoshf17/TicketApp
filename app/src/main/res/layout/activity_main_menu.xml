@@ -117,7 +117,7 @@
                 android:id="@+id/list_view_posts"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:dividerHeight="6dp"
+                android:dividerHeight="5dp"
                 android:divider="#a9a9a9a9"
 
                 />
