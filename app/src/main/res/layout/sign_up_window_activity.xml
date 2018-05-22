@@ -82,6 +82,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="18dp"
         android:onClick="signupBt"
+        android:background="@drawable/ripple"
         android:text="@string/sign_up_in_selection" />
 
     <TextView

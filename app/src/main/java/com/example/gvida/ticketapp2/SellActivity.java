@@ -166,7 +166,7 @@ public class SellActivity extends AppCompatActivity implements DatePickerDialog.
 
 
 
-             DatePickerDialog datePickerDialog = new DatePickerDialog(SellActivity.this, R.style.DialogTheme , SellActivity.this, year, month, day);
+             DatePickerDialog datePickerDialog = new DatePickerDialog(SellActivity.this , SellActivity.this, year, month, day);
              datePickerDialog.show();
 
           }
@@ -191,7 +191,7 @@ public class SellActivity extends AppCompatActivity implements DatePickerDialog.
         hour = c.get(Calendar.HOUR);
         minute = c.get(Calendar.MINUTE);
 
-        TimePickerDialog timePickerDialog = new TimePickerDialog(SellActivity.this, R.style.DialogTheme , SellActivity.this, hour, minute, true);
+        TimePickerDialog timePickerDialog = new TimePickerDialog(SellActivity.this , SellActivity.this, hour, minute, true);
         timePickerDialog.show();
 
 

@@ -32,7 +32,7 @@ import java.util.Iterator;
 public class LogInWindowActivity extends AppCompatActivity
 
 {
-    TextView lblTest;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -51,17 +51,6 @@ public class LogInWindowActivity extends AppCompatActivity
 
 
         new HttpClient().execute();
-
-    }
-
-
-    public void loginTest(View view) {
-        lblTest = findViewById(R.id.lbltest);
-        SharedPreferences sharedPref = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
-
-        String t  = sharedPref.getString("token", "");
-
-        lblTest.setText(t);
 
     }
 

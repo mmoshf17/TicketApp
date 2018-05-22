@@ -64,6 +64,8 @@ public class TicketDetails extends AppCompatActivity {
         setContentView(R.layout.activity_ticketdetails);
 
 
+
+
        Intent intent = getIntent();
         ticket = (Tickets) intent.getSerializableExtra("Tickets");
 
@@ -79,27 +81,6 @@ public class TicketDetails extends AppCompatActivity {
 
        description = findViewById(R.id.description_txt);
         description.setText(ticket.getDescription());
-
-        /*isAuction = findViewById(R.id.auction);
-        if (ticket.getisAcution().equals("true"))
-        {
-            isAuction.setText("Auction");
-        }
-        else{
-            isAuction.setText("Buy it now");
-        }
-
-        bid = findViewById(R.id.bidding);
-
-        if (ticket.getisAcution().equals("false")){
-
-            bid.setVisibility(View.GONE);
-        }
-
-        else{
-            bid.setVisibility(View.VISIBLE);
-        }*/
-
 
     }
 
@@ -158,7 +139,7 @@ public class TicketDetails extends AppCompatActivity {
     }
 
 
-
+//Save comments to database
     public class HttpClient9 extends AsyncTask<String, Void, Void> {
 
 

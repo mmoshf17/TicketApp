@@ -12,6 +12,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="19dp"
+        android:background="@drawable/ripple"
         android:text="@string/log_in_in_selection" />
 
     <Button
@@ -21,6 +22,7 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/log_in_selection_window"
         android:layout_marginTop="20dp"
+        android:background="@drawable/ripple"
         android:text="@string/sign_up_in_selection" />
 
 

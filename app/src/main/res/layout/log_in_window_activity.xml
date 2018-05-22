@@ -44,24 +44,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="33dp"
         android:onClick="loginBt"
+        android:background="@drawable/ripple"
         android:text="@string/log_in_user" />
 
-    <Button
-        android:id="@+id/btnTest"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="33dp"
-        android:onClick="loginTest"
-        android:text="test"
-        />
 
-    <TextView
-        android:id="@+id/lbltest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="25dp"
-        android:text="Test"/>
+
+
 
 
 

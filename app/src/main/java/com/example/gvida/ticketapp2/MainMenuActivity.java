@@ -259,7 +259,7 @@ public class MainMenuActivity extends AppCompatActivity implements DatePickerDia
 
 
 
-                DatePickerDialog datePickerDialog = new DatePickerDialog(MainMenuActivity.this, R.style.DialogTheme , MainMenuActivity.this, year, month, day);
+                DatePickerDialog datePickerDialog = new DatePickerDialog(MainMenuActivity.this, MainMenuActivity.this, year, month, day);
                 datePickerDialog.show();
 
             }
