@@ -53,6 +53,8 @@ public class SellActivity extends AppCompatActivity implements DatePickerDialog.
 
     Button btn_SelectDateTime;
     TextView resultOfDateTime;
+    //EditText from;
+    //EditText to;
     int day, month, year, hour, minute;
     int day_x, month_x, year_x, hour_x, minute_x;
     private DrawerLayout drawerLayout;
@@ -114,13 +116,41 @@ public class SellActivity extends AppCompatActivity implements DatePickerDialog.
             return false;
         });
 
+        //For Ticket category
         Spinner spinner = findViewById(R.id.dropDownCatagory);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.category, android.R.layout.simple_list_item_1);
         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
 
-        //For Date & Time
+        //from = findViewById(R.id.fromTicket);
+        //to = findViewById(R.id.toTicket);
+
+
+        //For From flights category dropdown
+        Spinner fromFlightSpinner = findViewById(R.id.fromTicket);
+
+        ArrayAdapter<CharSequence> fromFlightsAdapter = ArrayAdapter.createFromResource(this,
+                R.array.flighs_destinations, android.R.layout.simple_spinner_dropdown_item);
+        fromFlightsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        fromFlightSpinner.setAdapter(fromFlightsAdapter);
+
+
+
+        //For To Flights category dropdown
+        Spinner toFlightSpinner = findViewById(R.id.toTicket);
+
+        ArrayAdapter<CharSequence> toFlightsAdapter = ArrayAdapter.createFromResource(this,
+                R.array.flighs_destinations, android.R.layout.simple_spinner_dropdown_item);
+        toFlightsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        toFlightSpinner.setAdapter(toFlightsAdapter);
+
+
+
+
+
+
+                //For Date & Time
         btn_SelectDateTime = findViewById(R.id.selectDateTime);
         resultOfDateTime = findViewById(R.id.dateTimeResult);
 
@@ -165,9 +195,6 @@ public class SellActivity extends AppCompatActivity implements DatePickerDialog.
         timePickerDialog.show();
 
 
-
-
-
     }
 
     //DateTime
@@ -205,15 +232,45 @@ public class SellActivity extends AppCompatActivity implements DatePickerDialog.
        // resultOfDateTime.setText(year_x + "-" + month_x + "-" + day_x + "-" + " " + hour_x + ":" + minute_x);
     }
 
+
+
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String spinner = parent.getItemAtPosition(position).toString();
+
+        TextView fromFlightText = findViewById(R.id.fromTicketTextVeiw);
+        Spinner fromFlightSpinner = findViewById(R.id.fromTicket);
+
+        Spinner toFlightSpinner = findViewById(R.id.toTicket);
+        TextView toFlightText = findViewById(R.id.toTicketTextView);
+
+        if (spinner.toString().equals("Flights")){
+
+            fromFlightSpinner.setVisibility(View.VISIBLE);
+            fromFlightText.setVisibility(View.VISIBLE);
+
+            toFlightSpinner.setVisibility(View.VISIBLE);
+            toFlightText.setVisibility(View.VISIBLE);
+
+        }
+
+        else{
+
+            fromFlightSpinner.setVisibility(View.GONE);
+            fromFlightText.setVisibility(View.GONE);
+
+            toFlightSpinner.setVisibility(View.GONE);
+            toFlightText.setVisibility(View.GONE);
+        }
+
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
+
 
 
 
@@ -227,6 +284,8 @@ public class SellActivity extends AppCompatActivity implements DatePickerDialog.
         EditText ticketDescription = (EditText) findViewById(R.id.ticketDescription);
         //RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radio);
         Spinner spinner = findViewById(R.id.dropDownCatagory);
+        Spinner fromSpinner = findViewById(R.id.fromTicket);
+        Spinner toSpinner = findViewById(R.id.toTicket);
         //RadioButton radioBuy = (RadioButton)findViewById(R.id.radioBuy);
         //RadioButton radioAuction = (RadioButton)findViewById(R.id.radioAuction);
 
@@ -243,27 +302,13 @@ public class SellActivity extends AppCompatActivity implements DatePickerDialog.
                 postDataParams.put("category", spinner.getSelectedItem().toString());
                 postDataParams.put("price", ticketPrice.getText());
                 postDataParams.put("description", ticketDescription.getText());
-
-                //int selectedId = radioGroup.getCheckedRadioButtonId();
-                //RadioButton radioButton = findViewById(selectedId);
-                //String auctionValue = radioButton.getText().toString();
-                //boolean isAuction = !new String(auctionValue.toString()).equals("Buy it now");
-
-
-                //postDataParams.put("isAuction", isAuction);
+                postDataParams.put("FromFlights", fromSpinner.getSelectedItem().toString());
+                postDataParams.put("ToFlights", toSpinner.getSelectedItem().toString());
 
 
                 SharedPreferences sharedPref = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
 
                 String token = sharedPref.getString("token", "");
-
-                //String token = "pLTT7b4-9Tm_oVioiEFYGJpT25sFTvtBddeM2eDCXdbuEopv7yAC0tXfD50e3lQDvdBYGj70AFJu7n32BK5cncX214Jbpft-YI4gMBykv8JvZccAHNqk22i0XSTjtA5LHii7F8dFoMymz9MYqfipBJ_FQFVkFYfwD1ewvQ-eQ6Rka6yyJqvHr2IGkgkqYbkGYnuHgaOE3RJn6xgevnlKzxUS6b5zY22rRc2DCE7CVf-gm1AHi1PgdMiPfmotdud98xwhPkddUcwJZl3-KxU3EoRFOMsFHdE3IsQhRdMH0QLvqx_SOpTl-DU9zWGPEHKz9oqyLGVoTlra2H_FjhHgj_amlFRY92XLiUemxdJeCX1B4KPOWqZ4C74KYXPR8bnMAmdVNrrEk3igBp5WnQavFCSpc-mtZk7aiqQJQ9zX32eIE98sUDo-K77iINUhkSHjADnnEuWh95T8gydAPvxroyh_TKbyzDiY080rGV7mxUU6Nbxhi5-Olihd-tsNsgLo";
-
-                String test = token;
-
-
-                //TO use locally
-                //url = new URL("http://10.0.2.2:61902/api/Ticket/TicketReg");
 
                 url = new URL("http://ticketapp.shiftbook.dk/api/Ticket/TicketReg");
                 urlConnection = (HttpURLConnection) url.openConnection();

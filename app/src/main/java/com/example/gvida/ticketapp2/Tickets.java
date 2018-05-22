@@ -18,8 +18,8 @@ public class Tickets implements Serializable {
     private String name;
     private String price;
     private String description;
-    //private String events;
-    private String isAuction;
+
+
 
     public Tickets(int ticketId, String user, String category, String startingDate, String email, String name, String price, String description){
    // public Tickets(String name){
@@ -33,6 +33,7 @@ public class Tickets implements Serializable {
         this.name = name;
         this.price = price;
         this.description = description;
+
         //this.isAuction = isAuction;
 
     }
@@ -70,7 +71,7 @@ public Tickets(){
 
     public String toString() {
         //return "Name: " + name + "\n" + "Price: " + price + "\n" + "Description: " + description;
-        return  name +  "\n" + startingDate + "\n" + category;
+        return name + "\n" + startingDate + "\n" + category;
     }
 
 }

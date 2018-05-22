@@ -46,11 +46,9 @@ public class SignUpWindowActivity extends AppCompatActivity
 
        Button signUp = (Button) findViewById(R.id.sign_up_button_in_sign_up);
        EditText etName = (EditText) findViewById(R.id.enter_name_field);
-       //EditText etPassword = (EditText) findViewById(R.id.enter_password_field);
-       //EditText etPassword2 = (EditText) findViewById(R.id.repeat_password_field);
        EditText etEmail = (EditText) findViewById(R.id.enter_your_email_address);
        EditText etEmail2 = (EditText) findViewById(R.id.repeat_your_email_address);
-        profilePic = (ImageButton) findViewById(R.id.upload_photo_button);
+        profilePic = findViewById(R.id.upload_photo_button);
 
 
 

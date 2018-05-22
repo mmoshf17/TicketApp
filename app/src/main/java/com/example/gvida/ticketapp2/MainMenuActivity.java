@@ -1,5 +1,6 @@
 package com.example.gvida.ticketapp2;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -17,6 +18,8 @@ import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -32,12 +35,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Objects;
 
-public class MainMenuActivity extends AppCompatActivity {
+public class MainMenuActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener
+{
 
-private Tickets tickets;
+
+
     @Override
     protected void onStart() {
         //Shows only events on the beginning of the activity
@@ -55,19 +61,30 @@ private Tickets tickets;
     //this is only for the list of items in the main screen activity
     //ArrayAdapter<String> adapter;
 
-    //this is for the side menu
+    int day, month, year;
+    int day_x, month_x, year_x;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle mToggle;
     private SearchView searchView;
     private EditText editText;
     private ListView listView;
     private String selectedCat;
+    private String selectFlightCat;
+    private TextView resultDate;
+    private Button selectedDeparture;
+    private EditText toFlightsBox;
+    private EditText fromFlightsBox;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+
+
+        fromFlightsBox = findViewById(R.id.search_view);
+        toFlightsBox = findViewById(R.id.search_view2);
 
         //toolbar stuff
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -163,6 +180,7 @@ private Tickets tickets;
         RadioButton radioEvent = findViewById(R.id.radioButton2);
         RadioButton radioSport = findViewById(R.id.radioButton);
         RadioButton radioFlights = findViewById(R.id.radioButton3);
+        fromFlightsBox = findViewById(R.id.search_view);
 
         radio.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 
@@ -173,9 +191,6 @@ private Tickets tickets;
                 View radioButton = radio.findViewById(checkedId);
                 int index = radio.indexOfChild(radioButton);
 
-                // radio.check(radioEvent.getId());
-                // Add logic here
-
                 switch (index) {
                     case 0: // first button
 
@@ -183,20 +198,70 @@ private Tickets tickets;
 
                        selectedCat = radioEventValue;
 
+                        if (radioEvent.isChecked()){
 
+                            //toFlightsBox = findViewById(R.id.search_view2);
+                            toFlightsBox.setVisibility(View.GONE);
+                            fromFlightsBox.setHint("Search Ticket");
+                            selectedDeparture.setVisibility(View.GONE);
+                            resultDate.setVisibility(View.GONE);
+                        }
                         break;
+
                     case 1: // secondbutton
 
                         String radioSportValue = radioSport.getText().toString();
                         selectedCat = radioSportValue;
+
+                        if (radioSport.isChecked()){
+
+                            //toFlightsBox = findViewById(R.id.search_view2);
+                            toFlightsBox.setVisibility(View.GONE);
+                            fromFlightsBox.setHint("Search Ticket");
+                            selectedDeparture.setVisibility(View.GONE);
+                            resultDate.setVisibility(View.GONE);
+
+                        }
                         break;
 
                     case 2: // secondbutton
 
                         String radioFlightsValue = radioFlights.getText().toString();
-                        selectedCat = radioFlightsValue;
+                        selectFlightCat = radioFlightsValue;
+
+                        if (radioFlights.isChecked()){
+
+                            //toFlightsBox = findViewById(R.id.search_view2);
+                            toFlightsBox.setVisibility(View.VISIBLE);
+                            fromFlightsBox.setHint("From");
+                            selectedDeparture.setVisibility(View.VISIBLE);
+                            resultDate.setVisibility(View.VISIBLE);
+
+                        }
                         break;
+
                 }
+            }
+        });
+
+        resultDate = findViewById(R.id.resultDeparture);
+        selectedDeparture = findViewById(R.id.departure_date);
+
+        selectedDeparture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Calendar c = Calendar.getInstance();
+
+                year = c.get(Calendar.YEAR);
+                month = c.get(Calendar.MONTH);
+                day = c.get(Calendar.DAY_OF_MONTH);
+
+
+
+                DatePickerDialog datePickerDialog = new DatePickerDialog(MainMenuActivity.this, R.style.DialogTheme , MainMenuActivity.this, year, month, day);
+                datePickerDialog.show();
+
             }
         });
     }
@@ -215,14 +280,32 @@ private Tickets tickets;
 
         editText = findViewById(R.id.search_view);
         ReadTask task4 = new ReadTask();
+        ReadTask1 task5 = new ReadTask1();
 
+        RadioButton radioEvent = findViewById(R.id.radioButton2);
+        RadioButton radioSport = findViewById(R.id.radioButton);
 
         try {
 
+
+
+            if (radioEvent.isChecked() || radioSport.isChecked())
+            {
            CharSequence rws =  task4.execute("http://ticketapp.shiftbook.dk/api/GetTicket/GetSearchTicket/?name=" + editText.getText().toString()
                    + "&categoryId=" + selectedCat).get();
+            }
+
+            else {
+                CharSequence rws2 = task5.execute("http://ticketapp.shiftbook.dk/api/GetTicket/GetFlightTicket?origin="
+                        + fromFlightsBox.getText().toString() + "&dest=" + toFlightsBox.getText().toString()
+                        + "&categoryId=" + selectFlightCat).get();
+/*
+                CharSequence rws2 = task5.execute("http://ticketapp.shiftbook.dk/api/GetTicket/GetSearchTicket/?name=" + editText.getText().toString()
+                        + "&categoryId=" + selectFlightCat).get();
+*/
 
 
+            }
         }
 
         catch (Exception ex){
@@ -238,6 +321,32 @@ private Tickets tickets;
 
 
     }
+
+    @Override
+    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        year_x = year;
+        month_x = month;
+        day_x = dayOfMonth;
+
+
+        String monthString;
+        if (month_x < 10)
+            monthString = "0" + month_x;
+        else
+            monthString = "" + month_x;
+
+        String dayString;
+        if (day_x < 10)
+            dayString = "0" + day_x;
+        else
+            dayString = "" + day_x;
+
+
+        resultDate.setText(year_x + "-" + monthString + "-" + dayString);
+
+    }
+
+
 
     private class ReadTask extends ReadHttpTask {
         @Override
@@ -262,18 +371,12 @@ private Tickets tickets;
                     String description = obj.getString("Description");
                     String user = obj.getString("User");
                     String email = obj.getString("Email");
-                    //String isAuction = obj.getString("IsAuction");
-
 
                     //Created object of the Ticket class, to access the class & Passing values to the constructor
                     Tickets tkt = new Tickets(ticketId, user, category, startingDate, email, name, price, description);
                     //Tickets tkt = new Tickets(name);
                     //Adding values to the list
                     tkt1.add(tkt);
-
-
-
-
 
                 }
 
@@ -306,6 +409,71 @@ private Tickets tickets;
     }
 
 
+    private class ReadTask1 extends ReadHttpTask {
+        @Override
+        protected void onPostExecute(CharSequence jsonString) {
+
+            TextView messageTextView = findViewById(R.id.show_list);
+
+
+            //Gets the data from database and show all tickets into list by using loop
+            final List<FlightTickets> tkt1 = new ArrayList<>();
+
+            try {
+                JSONArray array = new JSONArray(jsonString.toString());
+                for (int i = 0; i < array.length(); i++) {
+                    JSONObject obj = array.getJSONObject(i);
+                    //Get the following data from Database
+                    int ticketId = obj.getInt("TicketId");
+                    String name = obj.getString("Name");
+                    String category = obj.getString("Category");
+                    String startingDate = obj.getString("StartingDate");
+                    String price = obj.getString("Price");
+                    String description = obj.getString("Description");
+                    String user = obj.getString("User");
+                    String email = obj.getString("Email");
+                    String fromFlights = obj.getString("FromFlights");
+                    String toFlights = obj.getString("ToFlights");
+
+
+                    //Created object of the Ticket class, to access the class & Passing values to the constructor
+                    FlightTickets tkt = new FlightTickets(ticketId, user, category, startingDate, email, name, price, description, fromFlights, toFlights);
+                    //Tickets tkt = new Tickets(name);
+                    //Adding values to the list
+                    tkt1.add(tkt);
+
+
+
+
+
+                }
+
+
+                listView = findViewById(R.id.list_view_posts);
+
+                ArrayAdapter<FlightTickets> adapter = new ArrayAdapter<>(getBaseContext(), android.R.layout.simple_list_item_1, tkt1);
+
+
+                listView.setAdapter(adapter);
+
+
+
+
+                listView.setOnItemClickListener((AdapterView<?> parent, View view, int position, long id) -> {
+                    Intent intent = new Intent(getBaseContext(), TicketDetails.class);
+                    Tickets tkt = (Tickets) parent.getItemAtPosition(position);
+                    intent.putExtra("FlightTickets", tkt);
+
+                    startActivity(intent);
+                });
+            } catch (JSONException ex) {
+                messageTextView.setText(ex.getMessage());
+                Log.e("FlightTickets", ex.getMessage());
+            }
+
+
+        }
+
     /*private class ReadTask extends ReadHttpTask {
                     @Override
                     protected void onPostExecute(CharSequence jsonString) {
@@ -336,7 +504,6 @@ private Tickets tickets;
 
 
 
-
                 }
 
                 ListView listView = findViewById(R.id.list_view_posts);
@@ -359,4 +526,5 @@ private Tickets tickets;
     }*/
 
 
-}
+
+}}
