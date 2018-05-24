@@ -76,7 +76,7 @@ public class TicketDetails extends AppCompatActivity {
         email.setText(ticket.getEmail());
 
         price = findViewById(R.id.price_txt);
-        price.setText(ticket.getPrice());
+        price.setText(ticket.getPrice() + "$");
 
        description = findViewById(R.id.description_txt);
         description.setText(ticket.getDescription());
