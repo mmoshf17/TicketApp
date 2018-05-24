@@ -41,6 +41,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Calendar;
 import java.util.Iterator;
+import java.util.Objects;
 
 /**
  * Created by Rehan Mir on 17-04-2018.
@@ -90,6 +91,11 @@ public class SellActivity extends AppCompatActivity implements DatePickerDialog.
             if(item.isChecked()) item.setChecked(false);
             else item.setChecked(true);
             drawerLayout.closeDrawers();
+
+            SharedPreferences sharedPref = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+
+            String token = sharedPref.getString("token", "");
+            
             switch (item.getItemId())
             {
                 case R.id.Home:
@@ -98,9 +104,16 @@ public class SellActivity extends AppCompatActivity implements DatePickerDialog.
                     break;
 
                 case R.id.Account:
+                    if (Objects.equals(token, "")) {
 
-                    Intent intent3 = new Intent(getApplicationContext(), LogInActivity.class);
-                    startActivity(intent3);
+                        Intent intent3 = new Intent(getApplicationContext(), LogInActivity.class);
+                        startActivity(intent3);
+                        break;
+                    } else if (!Objects.equals(token, "")) {
+                        Intent intent4 = new Intent(getApplicationContext(), ProfileActivity.class);
+                        startActivity(intent4);
+                        break;
+                    }
                     break;
 
                 case R.id.request_your_ticket:

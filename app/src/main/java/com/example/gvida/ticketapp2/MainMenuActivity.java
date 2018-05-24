@@ -311,7 +311,7 @@ public class MainMenuActivity extends AppCompatActivity implements DatePickerDia
         catch (Exception ex){
 
             listView.setAdapter(null);
-            Toast.makeText(getApplicationContext(), "Not found", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Sorry, ticket not found, But you can request for the ticket and you will get a notification, whenever the ticket is available", Toast.LENGTH_LONG).show();
             Exception dd = ex;
         }
 
