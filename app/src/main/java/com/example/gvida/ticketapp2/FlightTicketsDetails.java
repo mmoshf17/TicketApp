@@ -1,13 +1,11 @@
 package com.example.gvida.ticketapp2;
 
-import android.annotation.SuppressLint;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.media.session.MediaSession;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -37,16 +35,18 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * Created by Muheb.moshfiq on 5/5/2018.
+ * Created by Muheb.moshfiq on 5/23/2018.
  */
 
-public class TicketDetails extends AppCompatActivity {
+public class FlightTicketsDetails extends AppCompatActivity{
 
-    private Tickets ticket;
+    private FlightTickets flightTickets;
     private TextView email;
     private TextView user;
     private TextView price;
     private TextView description;
+    private TextView from;
+    private TextView to;
     //private TextView isAuction;
     //private EditText bid;
     //private ImageView imageView;
@@ -56,30 +56,40 @@ public class TicketDetails extends AppCompatActivity {
         super.onStart();
         ReadTask task = new ReadTask();
         //task.execute("http://10.0.2.2:61902/api/GetTicket/GetComments/?ticketId=" + ticket.getTicketId());
-        task.execute("http://ticketapp.shiftbook.dk/api/GetTicket/GetComments/?ticketId=" + ticket.getTicketId());
+        task.execute("http://ticketapp.shiftbook.dk/api/GetTicket/GetComments/?ticketId=" + flightTickets.getTicketId());
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ticketdetails);
+        setContentView(R.layout.activity_flightdetails);
 
 
-       Intent intent = getIntent();
-        ticket = (Tickets) intent.getSerializableExtra("Tickets");
 
 
-        user = findViewById(R.id.owner);
-        user.setText(ticket.getUser());
+        Intent intent = getIntent();
+        flightTickets = (FlightTickets) intent.getSerializableExtra("FlightTickets");
 
-        email = findViewById(R.id.email_txt);
-        email.setText(ticket.getEmail());
 
-        price = findViewById(R.id.price_txt);
-        price.setText(ticket.getPrice());
+        user = findViewById(R.id.ownerFlight);
+        user.setText(flightTickets.getUser());
 
-       description = findViewById(R.id.description_txt);
-        description.setText(ticket.getDescription());
+        email = findViewById(R.id.email_txtFlight);
+        email.setText(flightTickets.getEmail());
+
+        price = findViewById(R.id.price_txtFlight);
+        price.setText(flightTickets.getPrice());
+
+        description = findViewById(R.id.description_txtFlight);
+        description.setText(flightTickets.getDescription());
+
+        from = findViewById(R.id.fromtktdetailsFlight);
+        from.setText(flightTickets.getFromFlights());
+
+        to = findViewById(R.id.totktdetailsFlight);
+        to.setText(flightTickets.getToFlights());
+
+
 
     }
 
@@ -105,7 +115,7 @@ public class TicketDetails extends AppCompatActivity {
                     String userId = obj.getString("UserId");
                     String comment = obj.getString("Comment");
                     //String bid = obj.getString("Bid");
-                   // String dateCreated = obj.getString("DateCreated");
+                    // String dateCreated = obj.getString("DateCreated");
 
                     // boolean isAution = obj.getBoolean("isAuction");
                     // String userId = obj.getString("userId");
@@ -118,7 +128,7 @@ public class TicketDetails extends AppCompatActivity {
                 }
 
 
-                ListView listView = findViewById(R.id.list_view_posts);
+                ListView listView = findViewById(R.id.list_view_postsFlight);
                 ArrayAdapter<Comment> adapter = new ArrayAdapter<>(getBaseContext(), android.R.layout.simple_list_item_1, comm1);
                 listView.setAdapter(adapter);
                 listView.setOnItemClickListener((AdapterView<?> parent, View view, int position, long id) -> {
@@ -128,10 +138,9 @@ public class TicketDetails extends AppCompatActivity {
 
                     //startActivity(intent);
                 });
-            } catch (JSONException ex)
-            {
+            } catch (JSONException ex) {
                 messageTextView.setText(ex.getMessage());
-                Log.e("Tickets", ex.getMessage());
+                Log.e("FlightTickets", ex.getMessage());
             }
 
 
@@ -139,16 +148,15 @@ public class TicketDetails extends AppCompatActivity {
     }
 
 
-//Save comments to database
+    //Save comments to database
     public class HttpClient9 extends AsyncTask<String, Void, Void> {
 
 
-        EditText c = (EditText) findViewById(R.id.CommentBox);
+        EditText c = (EditText) findViewById(R.id.CommentBoxFlight);
         //EditText b = (EditText) findViewById(R.id.bidding);
 
 
 
-        @SuppressLint("SetTextI18n")
         @Override
         protected Void doInBackground(String... params){
             URL url;
@@ -156,7 +164,7 @@ public class TicketDetails extends AppCompatActivity {
 
             try {
                 JSONObject postDataParams = new JSONObject();
-                postDataParams.put("ticketId", ticket.getTicketId());
+                postDataParams.put("ticketId", flightTickets.getTicketId());
                 postDataParams.put("comment", c.getText());
                 //postDataParams.put("bid", b.getText());
 
@@ -204,26 +212,20 @@ public class TicketDetails extends AppCompatActivity {
                     //startActivity(intentNew);
 
                 }
-                    else if (responseCode == HttpURLConnection.HTTP_UNAUTHORIZED){
 
-                    Intent intent7 = new Intent(getApplicationContext(), LogInActivity.class);
-                    startActivity(intent7);
-                    runOnUiThread(new Runnable() {
-                        public void run() {
-                            Toast.makeText(getBaseContext(),"Please login/signup, to comment!",Toast.LENGTH_LONG).show();
-                        }
-                    });
+                    else if (responseCode == HttpURLConnection.HTTP_UNAUTHORIZED) {
 
-
+                        Intent intent7 = new Intent(getApplicationContext(), LogInActivity.class);
+                        startActivity(intent7);
+                        runOnUiThread(new Runnable() {
+                            public void run() {
+                                Toast.makeText(getBaseContext(), "Please login/signup, to comment!", Toast.LENGTH_LONG).show();
+                            }
+                        });
                     }
 
-
-
-
             } catch (Exception e) {
-                //e.printStackTrace();
-
-
+                e.printStackTrace();
             } finally {
                 if(urlConnection != null)
                     urlConnection.disconnect();
@@ -286,4 +288,3 @@ public class TicketDetails extends AppCompatActivity {
     }
 
 }
-

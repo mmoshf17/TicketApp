@@ -31,11 +31,7 @@ import java.util.Iterator;
 
 public class LogInWindowActivity extends AppCompatActivity
 
-
-
 {
-
-    TextView lblTest;
 
 
     @Override
@@ -55,22 +51,6 @@ public class LogInWindowActivity extends AppCompatActivity
 
 
         new HttpClient().execute();
-
-
-
-
-    }
-
-
-
-
-    public void loginTest(View view) {
-        lblTest = findViewById(R.id.lbltest);
-        SharedPreferences sharedPref = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
-
-        String t  = sharedPref.getString("token", "");
-
-        lblTest.setText(t);
 
     }
 
@@ -93,10 +73,6 @@ public class LogInWindowActivity extends AppCompatActivity
                 postDataParams.put("password", user_pass.getText());
 
 
-               // To use it locally.
-               // url = new URL("http://ticketapplication1.azurewebsites.net/api/Account/Login");
-                //url = new URL("http://10.0.2.2:61902/api/Account/Login");
-
                 url = new URL("http://ticketapp.shiftbook.dk/api/Account/Login");
                 urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setRequestMethod("POST");
@@ -110,11 +86,8 @@ public class LogInWindowActivity extends AppCompatActivity
                 writer.flush();
                 writer.close();
                 os.close();
-                //HTTP header
-                //urlConnection.setRequestProperty("Authorization", "Bearer "+ token);
 
                 int responseCode = urlConnection.getResponseCode();
-                String responseMessage = urlConnection.getResponseMessage();
 
                 if(responseCode == HttpURLConnection.HTTP_OK){
 
@@ -127,7 +100,6 @@ public class LogInWindowActivity extends AppCompatActivity
 
                     String kept = loginCrd.substring(17, loginCrd.indexOf(",") -1);
 
-                    //String remainder = loginCrd.substring(loginCrd.indexOf(",")+1, loginCrd.length());
 
                     SharedPreferences sharedPref = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPref.edit();

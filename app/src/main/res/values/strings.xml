@@ -62,6 +62,18 @@
         <item>Flights</item>
     </string-array>
 
+    <string-array name="flighs_destinations">
+        <item>Choose a destination</item>
+        <item>CPH - Copenhagen Airport</item>
+        <item>DUS - Düsseldorf Airport</item>
+        <item>LAX - Los Angeles International Airport</item>
+        <item>DEL - Indira Gandhi International Airport</item>
+        <item>ISB - Benazir Bhutto International Airport</item>
+        <item>EIN - Eindhoven Airport</item>
+        <item>AMS - Amsterdam Airport Schiphol</item>
+        <item>FRA - Frankfurt Airport</item>
+    </string-array>
+
     //Radio buttons in main menu
     <string name="flight_choice_3">Flights</string>
     <string name="sports_choice_2">Sports</string>
@@ -79,7 +91,8 @@
     <string name="description_for_detailsActivity">Description: "" </string>
     <string name="email_for_detailsActivity">User Email: "" </string>
     <string name="owner_for_detailsActivity">Owner: ""  </string>
-    <string name="buy_auction">Listing: ""  </string>
+    <string name="fromOrigin">From: ""  </string>
+    <string name="toOrigin">To: ""  </string>
 
     //nav_header
     <string name="my_header_title">My header title</string>

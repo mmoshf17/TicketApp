@@ -55,8 +55,6 @@ import java.util.Objects;
 public class RequestActivity extends AppCompatActivity
 {
 
-
-
     //this is for the side menu
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle mToggle;
@@ -157,19 +155,8 @@ public class RequestActivity extends AppCompatActivity
                 JSONObject postDataParams = new JSONObject();
                 postDataParams.put("Name", editTextName.getText());
 
-
-
                 SharedPreferences sharedPref = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
-
                 String token = sharedPref.getString("token", "");
-
-                //String token = "pLTT7b4-9Tm_oVioiEFYGJpT25sFTvtBddeM2eDCXdbuEopv7yAC0tXfD50e3lQDvdBYGj70AFJu7n32BK5cncX214Jbpft-YI4gMBykv8JvZccAHNqk22i0XSTjtA5LHii7F8dFoMymz9MYqfipBJ_FQFVkFYfwD1ewvQ-eQ6Rka6yyJqvHr2IGkgkqYbkGYnuHgaOE3RJn6xgevnlKzxUS6b5zY22rRc2DCE7CVf-gm1AHi1PgdMiPfmotdud98xwhPkddUcwJZl3-KxU3EoRFOMsFHdE3IsQhRdMH0QLvqx_SOpTl-DU9zWGPEHKz9oqyLGVoTlra2H_FjhHgj_amlFRY92XLiUemxdJeCX1B4KPOWqZ4C74KYXPR8bnMAmdVNrrEk3igBp5WnQavFCSpc-mtZk7aiqQJQ9zX32eIE98sUDo-K77iINUhkSHjADnnEuWh95T8gydAPvxroyh_TKbyzDiY080rGV7mxUU6Nbxhi5-Olihd-tsNsgLo";
-
-                String test = token;
-
-
-                //TO use locally
-                //url = new URL("http://10.0.2.2:61902/api/Ticket/TicketReg");
 
                 url = new URL("http://ticketapp.shiftbook.dk/api/Ticket/TicketRequest");
                 urlConnection = (HttpURLConnection) url.openConnection();
@@ -208,8 +195,12 @@ public class RequestActivity extends AppCompatActivity
                     Intent intentLogin = new Intent(RequestActivity.this, LogInActivity.class);
                     startActivity(intentLogin);
 
-                    Toast.makeText(getApplicationContext(), "Please login/signup, to request a ticket.",
-                            Toast.LENGTH_LONG).show();
+                    runOnUiThread(new Runnable() {
+                        public void run() {
+                            Toast.makeText(getBaseContext(),"Please login/signup, to request a ticket",Toast.LENGTH_LONG).show();
+                        }
+                    });
+
                 }
 
             } catch (Exception e) {

@@ -78,24 +78,71 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                >
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
 
-                <android.support.v7.widget.AppCompatEditText
-                    android:layout_margin="20dp"
-                    android:layout_width="218dp"
-                    android:layout_height="wrap_content"
-                    android:background="#fff"
-                    android:hint="@string/search_main_menu"
-                    android:id="@+id/search_view"
-                    />
+
+    <android.support.v7.widget.AppCompatEditText
+        android:layout_marginLeft="5dp"
+        android:layout_width="218dp"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:hint="@string/search_main_menu"
+        android:id="@+id/search_view"
+        />
+
+    <android.support.v4.widget.Space
+        android:layout_width="wrap_content"
+        android:layout_height="5dp" />
+
+    <android.support.v7.widget.AppCompatEditText
+        android:visibility="gone"
+        android:layout_marginLeft="5dp"
+        android:layout_width="218dp"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:hint="To"
+        android:id="@+id/search_view2"
+        />
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <Button
+        android:visibility="gone"
+        android:layout_marginLeft="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/departure_date"
+        android:background="@drawable/ripple"
+        android:text="Departure Date"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/resultDeparture"
+        android:visibility="gone"
+        />
+
+</LinearLayout>
+
+
+</LinearLayout>
+
 
                 <Button
                     android:id="@+id/search_btn"
-                    android:layout_margin="20dp"
+                    android:layout_marginLeft="48dp"
                     android:layout_width="100dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="80dp"
                     android:onClick="btnSearch"
+                    android:background="@drawable/ripple"
                     android:text="@string/Search_button" />
 
             </LinearLayout>
@@ -109,12 +156,17 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_below="@+id/first_layout_main_menu"
+
             >
 
             <ListView
                 android:id="@+id/list_view_posts"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:dividerHeight="6dp"
+                android:divider="#a9a9a9a9"
+
+                />
 
 
             <TextView
