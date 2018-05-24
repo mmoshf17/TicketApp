@@ -78,7 +78,7 @@ public class FlightTicketsDetails extends AppCompatActivity{
         email.setText(flightTickets.getEmail());
 
         price = findViewById(R.id.price_txtFlight);
-        price.setText( "US $ " + flightTickets.getPrice());
+        price.setText( "US $" + flightTickets.getPrice());
 
         description = findViewById(R.id.description_txtFlight);
         description.setText(flightTickets.getDescription());
