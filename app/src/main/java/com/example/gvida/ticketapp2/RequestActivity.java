@@ -55,8 +55,6 @@ import java.util.Objects;
 public class RequestActivity extends AppCompatActivity
 {
 
-
-
     //this is for the side menu
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle mToggle;
@@ -197,8 +195,12 @@ public class RequestActivity extends AppCompatActivity
                     Intent intentLogin = new Intent(RequestActivity.this, LogInActivity.class);
                     startActivity(intentLogin);
 
-                    Toast.makeText(getApplicationContext(), "Please login/signup, to request a ticket.",
-                            Toast.LENGTH_LONG).show();
+                    runOnUiThread(new Runnable() {
+                        public void run() {
+                            Toast.makeText(getBaseContext(),"Please login/signup, to request a ticket",Toast.LENGTH_LONG).show();
+                        }
+                    });
+
                 }
 
             } catch (Exception e) {

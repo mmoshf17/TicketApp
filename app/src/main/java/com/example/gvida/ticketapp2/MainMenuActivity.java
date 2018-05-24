@@ -311,7 +311,7 @@ public class MainMenuActivity extends AppCompatActivity implements DatePickerDia
         catch (Exception ex){
 
             listView.setAdapter(null);
-            Toast.makeText(getApplicationContext(), "Not found", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Not found", Toast.LENGTH_LONG).show();
             Exception dd = ex;
         }
 
@@ -460,8 +460,8 @@ public class MainMenuActivity extends AppCompatActivity implements DatePickerDia
 
 
                 listView.setOnItemClickListener((AdapterView<?> parent, View view, int position, long id) -> {
-                    Intent intent = new Intent(getBaseContext(), TicketDetails.class);
-                    Tickets tkt = (Tickets) parent.getItemAtPosition(position);
+                    Intent intent = new Intent(getBaseContext(), FlightTicketsDetails.class);
+                    FlightTickets tkt = (FlightTickets) parent.getItemAtPosition(position);
                     intent.putExtra("FlightTickets", tkt);
 
                     startActivity(intent);

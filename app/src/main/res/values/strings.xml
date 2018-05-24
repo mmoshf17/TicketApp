@@ -91,7 +91,8 @@
     <string name="description_for_detailsActivity">Description: "" </string>
     <string name="email_for_detailsActivity">User Email: "" </string>
     <string name="owner_for_detailsActivity">Owner: ""  </string>
-    <string name="buy_auction">Listing: ""  </string>
+    <string name="fromOrigin">From: ""  </string>
+    <string name="toOrigin">To: ""  </string>
 
     //nav_header
     <string name="my_header_title">My header title</string>
