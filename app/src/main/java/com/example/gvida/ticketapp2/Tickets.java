@@ -41,6 +41,14 @@ public class Tickets implements Serializable {
 public Tickets(){
 }
 
+    public String getStartingDate()
+    {
+        return startingDate;
+    }
+    public String getCategory()
+    {
+        return category;
+    }
     public int getTicketId() {
         return ticketId;
     }

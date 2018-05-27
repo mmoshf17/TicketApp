@@ -36,16 +36,11 @@ import java.util.Objects;
 
 public class MainMenuActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener
 {
-
-
-
     @Override
     protected void onStart() {
         //Shows only events on the beginning of the activity
         super.onStart();
         ReadTask task3 = new ReadTask();
-
-
         task3.execute("http://ticketapp.shiftbook.dk//api/GetTicket/GetTicketByCategory/?category=" + events);
     }
 
@@ -70,13 +65,10 @@ public class MainMenuActivity extends AppCompatActivity implements DatePickerDia
     private EditText toFlightsBox;
     private EditText fromFlightsBox;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
-
 
         fromFlightsBox = findViewById(R.id.search_view);
         toFlightsBox = findViewById(R.id.search_view2);
@@ -90,9 +82,6 @@ public class MainMenuActivity extends AppCompatActivity implements DatePickerDia
         listHeader.setTextAppearance(this, android.R.style.TextAppearance_Large);
         ListView listView = findViewById(R.id.list_view_posts);
         listView.addHeaderView(listHeader);
-
-
-
 
         //Side menu stuff
         drawerLayout = findViewById(R.id.DrawerLayout);
@@ -168,7 +157,6 @@ public class MainMenuActivity extends AppCompatActivity implements DatePickerDia
             }
             return false;
         });
-
 
         final RadioGroup radio = findViewById(R.id.radiobtns);
         //int selectedId = radio.getCheckedRadioButtonId();
@@ -252,8 +240,6 @@ public class MainMenuActivity extends AppCompatActivity implements DatePickerDia
                 month = c.get(Calendar.MONTH);
                 day = c.get(Calendar.DAY_OF_MONTH);
 
-
-
                 DatePickerDialog datePickerDialog = new DatePickerDialog(MainMenuActivity.this, MainMenuActivity.this, year, month, day);
                 datePickerDialog.show();
 
@@ -301,7 +287,6 @@ public class MainMenuActivity extends AppCompatActivity implements DatePickerDia
         }
 
         catch (Exception ex){
-
             listView.setAdapter(null);
             Toast.makeText(getApplicationContext(), "Sorry, ticket not found, But you can request for the ticket and you will get a notification, whenever the ticket is available", Toast.LENGTH_LONG).show();
             Exception dd = ex;
