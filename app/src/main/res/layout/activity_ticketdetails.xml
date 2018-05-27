@@ -1,132 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
-
-    <TextView
-        android:id="@+id/bird_heading_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white">
 
+        <android.support.v7.widget.Toolbar
 
-        <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/toolbar_ticket_details"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/owner_for_detailsActivity" />
+            android:background="@color/colorPrimaryDark"
+            android:theme="@style/ToolBarStyle"/>
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:orientation="vertical"
+            android:background="@color/colorPrimaryDark">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+        </LinearLayout>
+
+    <LinearLayout
+        android:background="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="20dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_action_account_settings"/>
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/owner"
-            android:text="" />
+            android:orientation="vertical"
+            android:layout_marginEnd="40dp">
+
+            <TextView
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/owner_for_detailsActivity" />
+
+            <TextView
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/owner"
+                android:text=""
+                android:layout_marginEnd="30dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/email_for_detailsActivity"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/email_txt"
+                android:text=""
+                android:textColor="@color/black"/>
+
+        </LinearLayout>
     </LinearLayout>
 
-    <android.support.v4.widget.Space
-        android:layout_width="match_parent"
-        android:layout_height="20dp" />
-
-<LinearLayout
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/email_for_detailsActivity" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/email_txt"
-        android:text="" />
-
-</LinearLayout>
-
-    <android.support.v4.widget.Space
-        android:layout_width="match_parent"
-        android:layout_height="20dp" />
-
-<LinearLayout
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/price_for_detailsActivity" />
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/price_txt"
-        android:text="" />
-
-</LinearLayout>
-
-    <android.support.v4.widget.Space
-        android:layout_width="match_parent"
-        android:layout_height="20dp" />
-
-<LinearLayout
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/description_for_detailsActivity" />
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/description_txt"
-        android:text="" />
-
-</LinearLayout>
-
-    <android.support.v4.widget.Space
-        android:layout_width="match_parent"
-        android:layout_height="20dp" />
-
-        <EditText
-            android:id="@+id/CommentBox"
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:hint="Write a comment to the seller:"
-            android:inputType="textMultiLine"
-            android:lines="5"
-            android:layout_width="fill_parent">
-        </EditText>
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="20dp">
 
-        <Button
-            android:text="send"
-            android:id="@+id/SendCommentbtn"
+            <TextView
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/price_for_detailsActivity" />
+
+
+            <TextView
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/price_txt"
+                android:text="" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginStart="20dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/description_for_detailsActivity" />
+
+
+            <TextView
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/description_txt"
+                android:text="" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/ripple"
-            android:onClick="SendCommentButton">
-        </Button>
+            android:orientation="horizontal"
+            android:background="@color/white">
+            <EditText
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/CommentBox"
+                android:layout_height="wrap_content"
+                android:hint="Write a comment to the seller:"
+                android:inputType="textMultiLine"
+                android:layout_width="310dp">
+            </EditText>
 
+            <ImageButton
+                android:src="@drawable/ic_action_name"
+                android:id="@+id/SendCommentbtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:onClick="SendCommentButton">
+            </ImageButton>
+        </LinearLayout>
 
-
-    <ListView
-        android:id="@+id/list_view_posts"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-    </ListView>
-
-
-
-
-
-</LinearLayout>
+        <ListView
+            android:id="@+id/list_view_posts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </ListView>
+    </LinearLayout>
+</RelativeLayout>

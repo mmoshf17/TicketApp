@@ -4,10 +4,8 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.media.session.MediaSession;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -17,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.support.v7.widget.Toolbar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -64,6 +63,9 @@ public class TicketDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ticketdetails);
 
+        Toolbar toolbar = findViewById(R.id.toolbar_ticket_details);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Name of the event");
 
        Intent intent = getIntent();
         ticket = (Tickets) intent.getSerializableExtra("Tickets");
