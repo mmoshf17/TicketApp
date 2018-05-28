@@ -17,7 +17,6 @@
             android:configChanges="keyboardHidden|orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -26,25 +25,25 @@
         <activity
             android:name=".SellActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:parentActivityName=".MainMenuActivity"></activity>
+            android:parentActivityName=".MainMenuActivity" />
         <activity
             android:name=".RequestActivity"
-            android:parentActivityName=".MainMenuActivity"></activity>
+            android:parentActivityName=".MainMenuActivity" />
         <activity
             android:name=".LogInActivity"
-            android:parentActivityName=".MainMenuActivity"></activity>
+            android:parentActivityName=".MainMenuActivity" />
         <activity
             android:name=".LogInWindowActivity"
-            android:parentActivityName=".LogInActivity"></activity>
+            android:parentActivityName=".LogInActivity" />
         <activity
             android:name=".SignUpWindowActivity"
-            android:parentActivityName=".LogInActivity"></activity>
+            android:parentActivityName=".LogInActivity" />
         <activity
             android:name=".ProfileActivity"
-            android:parentActivityName=".MainMenuActivity"></activity>
+            android:parentActivityName=".MainMenuActivity" />
         <activity
             android:name=".FlightTicketsDetails"
-            android:parentActivityName=".MainMenuActivity"></activity>
+            android:parentActivityName=".MainMenuActivity" />
         <activity
             android:name=".TicketDetails"
             android:parentActivityName=".MainMenuActivity"
@@ -52,7 +51,6 @@
         <activity
             android:name=".Payment"
             android:parentActivityName=".MainMenuActivity"> </activity>
-        <activity android:name=".SplashScreenActivity"> </activity>
     </application>
 
 </manifest>
