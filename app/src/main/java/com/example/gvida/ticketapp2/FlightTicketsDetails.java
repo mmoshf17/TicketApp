@@ -101,6 +101,12 @@ public class FlightTicketsDetails extends AppCompatActivity{
         new HttpClient9().execute();
     }
 
+    public void onFlightBuyBtn(View view) {
+
+        Intent intentBuy = new Intent(this, Payment.class);
+        startActivity(intentBuy);
+    }
+
     private class ReadTask extends ReadHttpTask {
         @Override
         protected void onPostExecute(CharSequence jsonString) {
