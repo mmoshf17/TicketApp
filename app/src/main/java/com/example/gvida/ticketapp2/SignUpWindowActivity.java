@@ -1,6 +1,5 @@
 package com.example.gvida.ticketapp2;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -25,10 +24,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Iterator;
-
-/**
- * Created by gvida on 21/03/2018.
- */
 
 public class SignUpWindowActivity extends AppCompatActivity
 {

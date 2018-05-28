@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.support.v7.widget.Toolbar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -64,7 +65,9 @@ public class FlightTicketsDetails extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flightdetails);
 
-
+        Toolbar toolbar = findViewById(R.id.toolbar_flight_ticket_details);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("name of the ticket");
 
 
         Intent intent = getIntent();

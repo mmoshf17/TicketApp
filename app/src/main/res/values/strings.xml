@@ -1,7 +1,7 @@
 <resources>
 
     // Application name
-    <string name="app_name">Ticket app</string>
+    <string name="app_name">Ticket Findr</string>
 
     // main menu buttons
     <string name="Upload_button">Sell your ticket</string>
