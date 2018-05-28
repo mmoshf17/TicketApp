@@ -93,9 +93,9 @@ public class SignUpWindowActivity extends AppCompatActivity
                 JSONObject postDataParams = new JSONObject();
                 postDataParams.put("Name", enterName.getText());
                 postDataParams.put("Email", enterEmail.getText());
-                postDataParams.put("RepeatEmail", repeatEmail.getText());
+                //postDataParams.put("RepeatEmail", repeatEmail.getText());
                 postDataParams.put("Password", enterPass.getText());
-                postDataParams.put("ConfirmPassword", repeatPass.getText());
+                //postDataParams.put("ConfirmPassword", repeatPass.getText());
 
 
                 url = new URL("http://ticketapp.shiftbook.dk/api/Account/Register");
@@ -122,6 +122,7 @@ public class SignUpWindowActivity extends AppCompatActivity
 
                     Intent intent = new Intent(SignUpWindowActivity.this, MainMenuActivity.class);
                     startActivity(intent);
+                    finish();
 
                     String responseString = readStream(urlConnection.getInputStream());
                     String books = responseString;

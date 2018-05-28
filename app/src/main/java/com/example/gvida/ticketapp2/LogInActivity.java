@@ -33,12 +33,14 @@ public class LogInActivity extends AppCompatActivity
         logIn.setOnClickListener((view -> {
             Intent intent = new Intent(LogInActivity.this, LogInWindowActivity.class);
             startActivity(intent);
+            finish();
         }));
 
         // When we click on signUp button, it goes to the next activity (SignUpWindowActivity)
         signUp.setOnClickListener((view -> {
             Intent intent = new Intent(LogInActivity.this, SignUpWindowActivity.class);
             startActivity(intent);
+            finish();
         }));
     }
 }

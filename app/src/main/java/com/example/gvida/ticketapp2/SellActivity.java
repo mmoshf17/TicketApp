@@ -100,7 +100,9 @@ public class SellActivity extends AppCompatActivity implements DatePickerDialog.
             {
                 case R.id.Home:
                     Intent intent2 = new Intent(getApplicationContext(), MainMenuActivity.class);
+                    intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent2);
+                    finish();
                     break;
 
                 case R.id.Account:
@@ -108,10 +110,12 @@ public class SellActivity extends AppCompatActivity implements DatePickerDialog.
 
                         Intent intent3 = new Intent(getApplicationContext(), LogInActivity.class);
                         startActivity(intent3);
+                        finish();
                         break;
                     } else if (!Objects.equals(token, "")) {
                         Intent intent4 = new Intent(getApplicationContext(), ProfileActivity.class);
                         startActivity(intent4);
+                        finish();
                         break;
                     }
                     break;
@@ -119,11 +123,13 @@ public class SellActivity extends AppCompatActivity implements DatePickerDialog.
                 case R.id.request_your_ticket:
                     Intent intent = new Intent(getApplicationContext(), RequestActivity.class);
                     startActivity(intent);
+                    finish();
                     break;
 
                 case R.id.Sell_your_ticket:
                     Intent intent1 = new Intent(getApplicationContext(), SellActivity.class);
                     startActivity(intent1);
+                    finish();
                     break;
             }
             return false;
@@ -350,6 +356,7 @@ public class SellActivity extends AppCompatActivity implements DatePickerDialog.
 
                     Intent intent = new Intent(SellActivity.this, MainMenuActivity.class);
                     startActivity(intent);
+                    finish();
 
                     String responseString = readStream(urlConnection.getInputStream());
                     String books = responseString;
@@ -359,6 +366,7 @@ public class SellActivity extends AppCompatActivity implements DatePickerDialog.
 
                     Intent intentLogin = new Intent(SellActivity.this, LogInActivity.class);
                     startActivity(intentLogin);
+                    finish();
 
                     Toast.makeText(getApplicationContext(), "Please login/signup, to sell a ticket.",
                             Toast.LENGTH_LONG).show();

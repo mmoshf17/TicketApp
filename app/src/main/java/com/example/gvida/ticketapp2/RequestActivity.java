@@ -101,7 +101,9 @@ public class RequestActivity extends AppCompatActivity
             switch (item.getItemId()) {
                 case R.id.Home:
                     Intent intent2 = new Intent(getApplicationContext(), MainMenuActivity.class);
+                    intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent2);
+                    finish();
                     break;
 
                 case R.id.Account:
@@ -109,10 +111,12 @@ public class RequestActivity extends AppCompatActivity
 
                         Intent intent3 = new Intent(getApplicationContext(), LogInActivity.class);
                         startActivity(intent3);
+                        finish();
                         break;
                     } else if (!Objects.equals(token, "")) {
                         Intent intent4 = new Intent(getApplicationContext(), ProfileActivity.class);
                         startActivity(intent4);
+                        finish();
                         break;
                     }
                     break;
@@ -120,12 +124,14 @@ public class RequestActivity extends AppCompatActivity
                 case R.id.request_your_ticket:
                     Intent intent = new Intent(getApplicationContext(), RequestActivity.class);
                     startActivity(intent);
+                    finish();
                     Toast.makeText(getApplicationContext(), "this", Toast.LENGTH_SHORT).show();
                     break;
 
                 case R.id.Sell_your_ticket:
                     Intent intent1 = new Intent(getApplicationContext(), SellActivity.class);
                     startActivity(intent1);
+                    finish();
                     break;
 
             }
@@ -185,15 +191,25 @@ public class RequestActivity extends AppCompatActivity
 
                     Intent intent = new Intent(RequestActivity.this, MainMenuActivity.class);
                     startActivity(intent);
+                    finish();
+
+
 
                     String responseString = readStream(urlConnection.getInputStream());
                     String books = responseString;
+
+                    runOnUiThread(new Runnable() {
+                        public void run() {
+                            Toast.makeText(getBaseContext(),"Request Saved",Toast.LENGTH_LONG).show();
+                        }
+                    });
 
 
                 } else if (responseCode == HttpURLConnection.HTTP_UNAUTHORIZED){
 
                     Intent intentLogin = new Intent(RequestActivity.this, LogInActivity.class);
                     startActivity(intentLogin);
+                    finish();
 
                     runOnUiThread(new Runnable() {
                         public void run() {

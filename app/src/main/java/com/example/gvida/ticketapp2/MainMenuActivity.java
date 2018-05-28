@@ -4,19 +4,25 @@ import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.annotation.RequiresPermission;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
+import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -36,11 +42,17 @@ import java.util.Objects;
 
 public class MainMenuActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener
 {
+
+
+
     @Override
     protected void onStart() {
         //Shows only events on the beginning of the activity
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         super.onStart();
         ReadTask task3 = new ReadTask();
+
+
         task3.execute("http://ticketapp.shiftbook.dk//api/GetTicket/GetTicketByCategory/?category=" + events);
     }
 
@@ -65,10 +77,13 @@ public class MainMenuActivity extends AppCompatActivity implements DatePickerDia
     private EditText toFlightsBox;
     private EditText fromFlightsBox;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+
 
         fromFlightsBox = findViewById(R.id.search_view);
         toFlightsBox = findViewById(R.id.search_view2);
@@ -82,6 +97,9 @@ public class MainMenuActivity extends AppCompatActivity implements DatePickerDia
         listHeader.setTextAppearance(this, android.R.style.TextAppearance_Large);
         ListView listView = findViewById(R.id.list_view_posts);
         listView.addHeaderView(listHeader);
+
+
+
 
         //Side menu stuff
         drawerLayout = findViewById(R.id.DrawerLayout);
@@ -115,6 +133,7 @@ public class MainMenuActivity extends AppCompatActivity implements DatePickerDia
                 case R.id.Home:
                     Intent intent2 = new Intent(getApplicationContext(), MainMenuActivity.class);
                     startActivity(intent2);
+                    finish();
                     break;
 
                 case R.id.Account:
@@ -124,9 +143,12 @@ public class MainMenuActivity extends AppCompatActivity implements DatePickerDia
                         Intent intent3 = new Intent(getApplicationContext(), LogInActivity.class);
                         startActivity(intent3);
                         break;
+
                     } else if (!Objects.equals(token, "")) {
                         Intent intent4 = new Intent(getApplicationContext(), ProfileActivity.class);
                         startActivity(intent4);
+
+
                         break;
                     }
 
@@ -157,6 +179,7 @@ public class MainMenuActivity extends AppCompatActivity implements DatePickerDia
             }
             return false;
         });
+
 
         final RadioGroup radio = findViewById(R.id.radiobtns);
         //int selectedId = radio.getCheckedRadioButtonId();
@@ -240,6 +263,8 @@ public class MainMenuActivity extends AppCompatActivity implements DatePickerDia
                 month = c.get(Calendar.MONTH);
                 day = c.get(Calendar.DAY_OF_MONTH);
 
+
+
                 DatePickerDialog datePickerDialog = new DatePickerDialog(MainMenuActivity.this, MainMenuActivity.this, year, month, day);
                 datePickerDialog.show();
 
@@ -250,7 +275,10 @@ public class MainMenuActivity extends AppCompatActivity implements DatePickerDia
 
     @Override
     public boolean onOptionsItemSelected(MenuItem menuItem) {
-        return mToggle.onOptionsItemSelected(menuItem) || super.onOptionsItemSelected(menuItem);
+        if (mToggle.onOptionsItemSelected(menuItem)) {
+            return true;
+        }
+        return super.onOptionsItemSelected(menuItem);
     }
 
     public void btnSearch(View view) {
@@ -287,6 +315,7 @@ public class MainMenuActivity extends AppCompatActivity implements DatePickerDia
         }
 
         catch (Exception ex){
+
             listView.setAdapter(null);
             Toast.makeText(getApplicationContext(), "Sorry, ticket not found, But you can request for the ticket and you will get a notification, whenever the ticket is available", Toast.LENGTH_LONG).show();
             Exception dd = ex;
@@ -374,6 +403,7 @@ public class MainMenuActivity extends AppCompatActivity implements DatePickerDia
                     intent.putExtra("Tickets", tkt);
 
                     startActivity(intent);
+
                 });
             } catch (JSONException ex) {
                 messageTextView.setText(ex.getMessage());
@@ -442,6 +472,7 @@ public class MainMenuActivity extends AppCompatActivity implements DatePickerDia
                     intent.putExtra("FlightTickets", tkt);
 
                     startActivity(intent);
+
                 });
             } catch (JSONException ex) {
                 messageTextView.setText(ex.getMessage());

@@ -24,7 +24,7 @@
 
     // sign up all options
     <string name="upload_photo">upload photo</string>
-    <string name="enter_your_name">Enter your name</string>
+    <string name="enter_your_name">Enter your username</string>
     <string name="enter_your_password">Enter your password</string>
     <string name="repeat_password">Repeat your password</string>
     <string name="enter_your_email">Enter your email</string>
@@ -53,7 +53,7 @@
     <string name="buy_it_now">Buy it now</string>
     <string name="upload_post">Upload</string>
     <string name="location">Location</string>
-    <string name="select_date">Select starting date</string>
+    <string name="select_date">Date</string>
     <string name="select_category">Select Category:</string>
 
     <string-array name="category">

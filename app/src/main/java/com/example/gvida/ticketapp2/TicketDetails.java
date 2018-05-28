@@ -210,6 +210,7 @@ public class TicketDetails extends AppCompatActivity {
 
                     Intent intent7 = new Intent(getApplicationContext(), LogInActivity.class);
                     startActivity(intent7);
+                    finish();
                     runOnUiThread(new Runnable() {
                         public void run() {
                             Toast.makeText(getBaseContext(),"Please login/signup, to comment!",Toast.LENGTH_LONG).show();

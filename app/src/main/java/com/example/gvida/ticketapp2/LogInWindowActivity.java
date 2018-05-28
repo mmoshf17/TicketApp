@@ -109,6 +109,7 @@ public class LogInWindowActivity extends AppCompatActivity
 
                         Intent intent = new Intent(LogInWindowActivity.this, MainMenuActivity.class);
                         startActivity(intent);
+                    finish();
 
 
 
