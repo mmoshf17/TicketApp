@@ -158,7 +158,7 @@
             android:orientation="vertical"
             android:layout_below="@+id/first_layout_main_menu">
 
-            <android.support.v7.widget.RecyclerView
+            <ListView
                 android:id="@+id/list_view_posts"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
