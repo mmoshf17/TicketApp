@@ -90,6 +90,15 @@ public class TicketDetails extends AppCompatActivity {
         new HttpClient9().execute();
     }
 
+
+
+
+    public void btnBuyTicket(View view) {
+
+        Intent intentBuy = new Intent(this, Payment.class);
+        startActivity(intentBuy);
+    }
+
     private class ReadTask extends ReadHttpTask {
         @Override
         protected void onPostExecute(CharSequence jsonString) {
