@@ -23,9 +23,7 @@ public class FlightTickets implements Serializable {
     private String isAuction;
 
     public FlightTickets(int ticketId, String user, String category, String startingDate, String email, String name, String price, String description, String fromFlights, String toFlights){
-        // public Tickets(String name){
 
-        // this.userId = userId;
         this.ticketId = ticketId;
         this.category = category;
         this.startingDate = startingDate;
@@ -36,7 +34,7 @@ public class FlightTickets implements Serializable {
         this.description = description;
         this.fromFlights = fromFlights;
         this.toFlights = toFlights;
-        //this.isAuction = isAuction;
+
 
     }
 
@@ -80,7 +78,7 @@ public class FlightTickets implements Serializable {
 
 
     public String toString() {
-        //return "Name: " + name + "\n" + "Price: " + price + "\n" + "Description: " + description;
+
         return "Flight no: " + name  + "\n" + "From: " + fromFlights + "\n" + "To: " + toFlights + "\n" + "Date: " + startingDate;
 
 

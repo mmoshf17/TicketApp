@@ -1,8 +1,6 @@
 package com.example.gvida.ticketapp2;
 
 import android.app.DatePickerDialog;
-import android.app.Notification;
-import android.app.NotificationManager;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -20,15 +18,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
-
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -49,13 +43,9 @@ import java.util.Objects;
 
 public class SellActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener, AdapterView.OnItemSelectedListener{
 
-    //private TextView displayDate;
-    //private DatePickerDialog.OnDateSetListener selectDateListener;
 
     Button btn_SelectDateTime;
     TextView resultOfDateTime;
-    //EditText from;
-    //EditText to;
     int day, month, year, hour, minute;
     int day_x, month_x, year_x, hour_x, minute_x;
     private DrawerLayout drawerLayout;
@@ -141,9 +131,6 @@ public class SellActivity extends AppCompatActivity implements DatePickerDialog.
         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
-
-        //from = findViewById(R.id.fromTicket);
-        //to = findViewById(R.id.toTicket);
 
 
         //For From flights category dropdown
@@ -345,7 +332,7 @@ public class SellActivity extends AppCompatActivity implements DatePickerDialog.
                 writer.flush();
                 writer.close();
                 os.close();
-                //HTTP header
+
                 //urlConnection.setRequestProperty("Authorization", "Bearer "+ "pLTT7b4-9Tm_oVioiEFYGJpT25sFTvtBddeM2eDCXdbuEopv7yAC0tXfD50e3lQDvdBYGj70AFJu7n32BK5cncX214Jbpft-YI4gMBykv8JvZccAHNqk22i0XSTjtA5LHii7F8dFoMymz9MYqfipBJ_FQFVkFYfwD1ewvQ-eQ6Rka6yyJqvHr2IGkgkqYbkGYnuHgaOE3RJn6xgevnlKzxUS6b5zY22rRc2DCE7CVf-gm1AHi1PgdMiPfmotdud98xwhPkddUcwJZl3-KxU3EoRFOMsFHdE3IsQhRdMH0QLvqx_SOpTl-DU9zWGPEHKz9oqyLGVoTlra2H_FjhHgj_amlFRY92XLiUemxdJeCX1B4KPOWqZ4C74KYXPR8bnMAmdVNrrEk3igBp5WnQavFCSpc-mtZk7aiqQJQ9zX32eIE98sUDo-K77iINUhkSHjADnnEuWh95T8gydAPvxroyh_TKbyzDiY080rGV7mxUU6Nbxhi5-Olihd-tsNsgLo");
 
                 int responseCode = urlConnection.getResponseCode();

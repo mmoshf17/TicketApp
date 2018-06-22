@@ -9,7 +9,6 @@ import java.text.DateFormat;
 
 public class Tickets implements Serializable {
 
-    //private  String userId;
     private int ticketId;
     private String category;
     private String startingDate;
@@ -22,9 +21,8 @@ public class Tickets implements Serializable {
 
 
     public Tickets(int ticketId, String user, String category, String startingDate, String email, String name, String price, String description){
-   // public Tickets(String name){
 
-       // this.userId = userId;
+
         this.ticketId = ticketId;
         this.category = category;
         this.startingDate = startingDate;
@@ -34,7 +32,6 @@ public class Tickets implements Serializable {
         this.price = price;
         this.description = description;
 
-        //this.isAuction = isAuction;
 
     }
 
@@ -78,7 +75,7 @@ public Tickets(){
 
 
     public String toString() {
-        //return "Name: " + name + "\n" + "Price: " + price + "\n" + "Description: " + description;
+
         return name + "\n" + startingDate + "\n" + category;
     }
 

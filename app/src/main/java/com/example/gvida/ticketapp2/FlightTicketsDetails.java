@@ -123,13 +123,10 @@ public class FlightTicketsDetails extends AppCompatActivity{
                     //String ticketId = obj.getString("TicketId");
                     String userId = obj.getString("UserId");
                     String comment = obj.getString("Comment");
-                    //String bid = obj.getString("Bid");
-                    // String dateCreated = obj.getString("DateCreated");
 
-                    // boolean isAution = obj.getBoolean("isAuction");
-                    // String userId = obj.getString("userId");
+
                     Comment comm = new Comment(userId, comment);
-                    //Tickets tkt = new Tickets(name);
+
 
                     comm1.add(comm);
 
@@ -141,11 +138,7 @@ public class FlightTicketsDetails extends AppCompatActivity{
                 ArrayAdapter<Comment> adapter = new ArrayAdapter<>(getBaseContext(), android.R.layout.simple_list_item_1, comm1);
                 listView.setAdapter(adapter);
                 listView.setOnItemClickListener((AdapterView<?> parent, View view, int position, long id) -> {
-                    //Intent intent = new Intent(getBaseContext(), TicketDetails.class);
-                    //Comment co = (Comment) parent.getItemAtPosition(position);
-                    //intent.putExtra("Comment",co);
 
-                    //startActivity(intent);
                 });
             } catch (JSONException ex) {
                 messageTextView.setText(ex.getMessage());
@@ -162,7 +155,7 @@ public class FlightTicketsDetails extends AppCompatActivity{
 
 
         EditText c = (EditText) findViewById(R.id.CommentBoxFlight);
-        //EditText b = (EditText) findViewById(R.id.bidding);
+
 
 
 
@@ -175,7 +168,6 @@ public class FlightTicketsDetails extends AppCompatActivity{
                 JSONObject postDataParams = new JSONObject();
                 postDataParams.put("ticketId", flightTickets.getTicketId());
                 postDataParams.put("comment", c.getText());
-                //postDataParams.put("bid", b.getText());
 
 
                 SharedPreferences sharedPref = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
@@ -185,10 +177,6 @@ public class FlightTicketsDetails extends AppCompatActivity{
 
 
                 String test = token;
-
-
-                //TO use locally
-                //url = new URL("http://10.0.2.2:61902/api/Ticket/TicketReg");
 
                 url = new URL("http://ticketapp.shiftbook.dk/api/Ticket/SaveComment");
                 urlConnection = (HttpURLConnection) url.openConnection();
@@ -206,7 +194,7 @@ public class FlightTicketsDetails extends AppCompatActivity{
                 writer.flush();
                 writer.close();
                 os.close();
-                //HTTP header
+
                 //urlConnection.setRequestProperty("Authorization", "Bearer "+ "pLTT7b4-9Tm_oVioiEFYGJpT25sFTvtBddeM2eDCXdbuEopv7yAC0tXfD50e3lQDvdBYGj70AFJu7n32BK5cncX214Jbpft-YI4gMBykv8JvZccAHNqk22i0XSTjtA5LHii7F8dFoMymz9MYqfipBJ_FQFVkFYfwD1ewvQ-eQ6Rka6yyJqvHr2IGkgkqYbkGYnuHgaOE3RJn6xgevnlKzxUS6b5zY22rRc2DCE7CVf-gm1AHi1PgdMiPfmotdud98xwhPkddUcwJZl3-KxU3EoRFOMsFHdE3IsQhRdMH0QLvqx_SOpTl-DU9zWGPEHKz9oqyLGVoTlra2H_FjhHgj_amlFRY92XLiUemxdJeCX1B4KPOWqZ4C74KYXPR8bnMAmdVNrrEk3igBp5WnQavFCSpc-mtZk7aiqQJQ9zX32eIE98sUDo-K77iINUhkSHjADnnEuWh95T8gydAPvxroyh_TKbyzDiY080rGV7mxUU6Nbxhi5-Olihd-tsNsgLo");
 
                 int responseCode = urlConnection.getResponseCode();
@@ -217,8 +205,6 @@ public class FlightTicketsDetails extends AppCompatActivity{
 
                     finish();
                     startActivity(getIntent());
-                    //Intent intentNew = new Intent(TicketDetails.this, TicketDetails.class);
-                    //startActivity(intentNew);
 
                 }
 

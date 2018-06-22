@@ -23,8 +23,6 @@ public class LogInActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.log_in_selection_window);
 
-       //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         // Introduced the 2 buttons, which are in this Activity
         logIn = (Button) findViewById(R.id.log_in_selection_window);
         signUp = (Button) findViewById(R.id.sign_up_selection_window);

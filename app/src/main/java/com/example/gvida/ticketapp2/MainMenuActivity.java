@@ -4,26 +4,20 @@ import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Handler;
-import android.support.annotation.RequiresPermission;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -31,11 +25,9 @@ import android.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -43,9 +35,6 @@ import java.util.Objects;
 
 public class MainMenuActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener
 {
-
-
-
     @Override
     protected void onStart() {
         //Shows only events on the beginning of the activity
@@ -59,10 +48,8 @@ public class MainMenuActivity extends AppCompatActivity implements DatePickerDia
 
     private String events = "events";
 
-    // RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radiobtns);
 
     //this is only for the list of items in the main screen activity
-    //ArrayAdapter<String> adapter;
 
     int day, month, year;
     int day_x, month_x, year_x;
@@ -179,7 +166,6 @@ public class MainMenuActivity extends AppCompatActivity implements DatePickerDia
 
 
         final RadioGroup radio = findViewById(R.id.radiobtns);
-        //int selectedId = radio.getCheckedRadioButtonId();
         RadioButton radioEvent = findViewById(R.id.radioButton2);
         RadioButton radioSport = findViewById(R.id.radioButton);
         RadioButton radioFlights = findViewById(R.id.radioButton3);
@@ -269,7 +255,7 @@ public class MainMenuActivity extends AppCompatActivity implements DatePickerDia
         });
     }
 
-
+//3 lines (Hamburger icon)
     @Override
     public boolean onOptionsItemSelected(MenuItem menuItem) {
         if (mToggle.onOptionsItemSelected(menuItem)) {
@@ -289,24 +275,16 @@ public class MainMenuActivity extends AppCompatActivity implements DatePickerDia
         RadioButton radioSport = findViewById(R.id.radioButton);
 
         try {
-
-
-
             if (radioEvent.isChecked() || radioSport.isChecked())
             {
-           CharSequence rws =  task4.execute("http://ticketapp.shiftbook.dk/api/GetTicket/GetSearchTicket/?name=" + editText.getText().toString()
+           task4.execute("http://ticketapp.shiftbook.dk/api/GetTicket/GetSearchTicket/?name=" + editText.getText().toString()
                    + "&categoryId=" + selectedCat).get();
             }
 
             else {
-                CharSequence rws2 = task5.execute("http://ticketapp.shiftbook.dk/api/GetTicket/GetFlightTicket?origin="
+                task5.execute("http://ticketapp.shiftbook.dk/api/GetTicket/GetFlightTicket?origin="
                         + fromFlightsBox.getText().toString() + "&dest=" + toFlightsBox.getText().toString()
                         + "&categoryId=" + selectFlightCat).get();
-/*
-                CharSequence rws2 = task5.execute("http://ticketapp.shiftbook.dk/api/GetTicket/GetSearchTicket/?name=" + editText.getText().toString()
-                        + "&categoryId=" + selectFlightCat).get();
-*/
-
 
             }
         }
@@ -317,11 +295,6 @@ public class MainMenuActivity extends AppCompatActivity implements DatePickerDia
             Toast.makeText(getApplicationContext(), "Sorry, ticket not found, But you can request for the ticket and you will get a notification, whenever the ticket is available", Toast.LENGTH_LONG).show();
             Exception dd = ex;
         }
-
-
-
-       // if (!(tickets.getName().equals(  String.valueOf(editText))))
-
 
     }
 
@@ -377,7 +350,7 @@ public class MainMenuActivity extends AppCompatActivity implements DatePickerDia
 
                     //Created object of the Ticket class, to access the class & Passing values to the constructor
                     Tickets tkt = new Tickets(ticketId, user, category, startingDate, email, name, price, description);
-                    //Tickets tkt = new Tickets(name);
+
                     //Adding values to the list
                     tkt1.add(tkt);
 
@@ -442,13 +415,9 @@ public class MainMenuActivity extends AppCompatActivity implements DatePickerDia
 
                     //Created object of the Ticket class, to access the class & Passing values to the constructor
                     FlightTickets tkt = new FlightTickets(ticketId, user, category, startingDate, email, name, price, description, fromFlights, toFlights);
-                    //Tickets tkt = new Tickets(name);
+
                     //Adding values to the list
                     tkt1.add(tkt);
-
-
-
-
 
                 }
 
@@ -459,8 +428,6 @@ public class MainMenuActivity extends AppCompatActivity implements DatePickerDia
 
 
                 listView.setAdapter(adapter);
-
-
 
 
                 listView.setOnItemClickListener((AdapterView<?> parent, View view, int position, long id) -> {
@@ -479,56 +446,6 @@ public class MainMenuActivity extends AppCompatActivity implements DatePickerDia
 
         }
 
-    /*private class ReadTask extends ReadHttpTask {
-                    @Override
-                    protected void onPostExecute(CharSequence jsonString) {
-                        TextView messageTextView = findViewById(R.id.show_list);
-
-                        //Gets the data from database and show all tickets into list by using loop
-                        final List<Tickets> tkt1 = new ArrayList<>();
-                        try {
-                            JSONArray array = new JSONArray(jsonString.toString());
-                            for (int i = 0; i < array.length(); i++) {
-                                JSONObject obj = array.getJSONObject(i);
-                                //Get the following data from Database
-                                int ticketId = obj.getInt("TicketId");
-                                String name = obj.getString("Name");
-                                String category = obj.getString("Category");
-                                String startingDate = obj.getString("StartingDate");
-                                String price = obj.getString("Price");
-                                String description = obj.getString("Description");
-                                String user = obj.getString("User");
-                                String email = obj.getString("Email");
-                                // boolean isAution = obj.getBoolean("isAuction");
-                                // String userId = obj.getString("userId");
-                                //Created object of the Ticket class, to access the class & Passing values to the constructor
-                                Tickets tkt = new Tickets(ticketId, user, category, startingDate, email, name, price, description);
-                                //Tickets tkt = new Tickets(name);
-                                //Adding values to the list
-                    tkt1.add(tkt);
-
-
-
-                }
-
-                ListView listView = findViewById(R.id.list_view_posts);
-                ArrayAdapter<Tickets> adapter = new ArrayAdapter<>(getBaseContext(), android.R.layout.simple_list_item_1, tkt1);
-                listView.setAdapter(adapter);
-                listView.setOnItemClickListener((AdapterView<?> parent, View view, int position, long id) -> {
-                    Intent intent = new Intent(getBaseContext(), TicketDetails.class);
-                    Tickets tkt = (Tickets) parent.getItemAtPosition(position);
-                    intent.putExtra("Tickets",tkt);
-
-                    startActivity(intent);
-                });
-            } catch (JSONException ex) {
-                messageTextView.setText(ex.getMessage());
-                Log.e("Tickets", ex.getMessage());
-            }
-
-
-        }
-    }*/
 
 
 

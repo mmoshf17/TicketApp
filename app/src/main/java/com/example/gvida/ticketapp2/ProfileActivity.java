@@ -119,7 +119,6 @@ public class ProfileActivity extends AppCompatActivity {
 
         editor.clear();
         editor.apply();
-       // finish();
 
         Intent intent5 = new Intent(getApplicationContext(), MainMenuActivity.class);
         startActivity(intent5);
